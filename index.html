@@ -63,80 +63,39 @@
 
   <!-- ====== HERO ====== -->
   <section id="inicio" class="hero">
-    <div class="hero-fx" aria-hidden="true">
-      <div class="grid-plane"></div>
-      <div class="glow-gold"></div>
-    </div>
-
-    <div class="hero-orbit" aria-hidden="true">
-      <svg viewBox="0 0 400 400">
-        <circle class="orbit-ring" cx="200" cy="200" r="190"/>
-        <circle class="orbit-ring gold" cx="200" cy="200" r="150"/>
-        <circle class="orbit-ring" cx="200" cy="200" r="110"/>
-        <g class="orbit-spin-slow">
-          <circle class="orbit-dot" cx="200" cy="10" r="4" fill="#c9a227"/>
-        </g>
-        <g class="orbit-spin-slow rev">
-          <circle class="orbit-dot" cx="200" cy="50" r="5" fill="#ec6a1a"/>
-        </g>
-        <use href="#globe-mark" x="120" y="120" width="160" height="160" opacity="0.95"/>
-      </svg>
-    </div>
-
-    <div class="hero-content">
-      <div>
-        <div class="hero-badge">
-          <span class="badge-dot" aria-hidden="true"></span>
-          Agencia de seguros certificada · Vigilada por la SFC
-        </div>
-        <h1 class="hero-title">
-          Su tranquilidad no se cotiza,
-          <span class="line2">se protege.</span>
-        </h1>
-        <p class="hero-desc">
-          Comparamos entre las mejores aseguradoras de Colombia para encontrar el seguro que
-          realmente necesita, a un clic de distancia. Asesoría honesta, sin letra pequeña.
-        </p>
-        <div class="hero-actions">
-          <a href="#cotizador" class="btn btn-primary">
-            Cotizar en 2 minutos
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </a>
-          <a href="#servicios" class="btn btn-secondary btn-on-dark">Ver todos los seguros</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-number-row"><span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span></div>
-            <span class="stat-label">Años de experiencia</span>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number-row"><span class="stat-number" data-target="5000">0</span><span class="stat-plus">+</span></div>
-            <span class="stat-label">Clientes protegidos</span>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number-row"><span class="stat-number" data-target="98">0</span><span class="stat-plus">%</span></div>
-            <span class="stat-label">Satisfacción</span>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number-row"><span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span></div>
-            <span class="stat-label">Aseguradoras aliadas</span>
-          </div>
-        </div>
+    <div class="section-container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Agencia de seguros certificada · Vigilada por la SFC
+      </div>
+      <h1 class="hero-title">
+        Su tranquilidad no se cotiza, <span class="accent">se protege.</span>
+      </h1>
+      <p class="hero-desc">
+        Comparamos entre las mejores aseguradoras de Colombia para encontrar el seguro que
+        realmente necesita. Asesoría honesta, sin letra pequeña.
+      </p>
+      <div class="hero-actions">
+        <a href="#cotizador" class="btn btn-primary">Cotizar en 2 minutos</a>
+        <a href="#servicios" class="btn btn-secondary">Ver todos los seguros</a>
       </div>
 
-      <div class="hero-card-stack">
-        <div class="hero-glass-card">
-          <div class="hgc-icon"><i class="ti ti-shield-check"></i></div>
-          <div class="hgc-text"><strong>Protección total</strong><span>16 líneas de seguro</span></div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number-row"><span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span></div>
+          <span class="stat-label">Años de experiencia</span>
         </div>
-        <div class="hero-glass-card delay-1">
-          <div class="hgc-icon"><i class="ti ti-bolt"></i></div>
-          <div class="hgc-text"><strong>Respuesta rápida</strong><span>Asesoría en &lt;24h</span></div>
+        <div class="stat-item">
+          <div class="stat-number-row"><span class="stat-number" data-target="5000">0</span><span class="stat-plus">+</span></div>
+          <span class="stat-label">Clientes protegidos</span>
         </div>
-        <div class="hero-glass-card delay-2">
-          <div class="hgc-icon"><i class="ti ti-certificate"></i></div>
-          <div class="hgc-text"><strong>Respaldo real</strong><span>Certificados Fasecolda</span></div>
+        <div class="stat-item">
+          <div class="stat-number-row"><span class="stat-number" data-target="98">0</span><span class="stat-plus">%</span></div>
+          <span class="stat-label">Satisfacción</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number-row"><span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span></div>
+          <span class="stat-label">Aseguradoras aliadas</span>
         </div>
       </div>
 
@@ -145,11 +104,6 @@
         <span class="trust-chip"><i class="ti ti-shield-check"></i> Fasecolda</span>
         <span class="trust-chip"><i class="ti ti-building-bank"></i> Vigilado SFC</span>
       </div>
-    </div>
-
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Descubra más</span>
-      <div class="mouse"></div>
     </div>
   </section>
 
@@ -162,24 +116,16 @@
         <p class="section-subtitle">Seleccione una categoría y cotice el seguro ideal en minutos con nuestro asesor virtual.</p>
       </div>
 
-      <div class="tabs-wrapper reveal" role="tablist" aria-label="Categorías de seguros" id="tabsWrapper">
-        <div class="tab-indicator" id="tabIndicator" aria-hidden="true"></div>
-        <button class="tab-btn active" id="tab-generales" role="tab" aria-selected="true" aria-controls="panel-generales" data-tab="generales">
-          <span class="tab-icon"><i class="ti ti-shield"></i></span><span>Seguros y Servicios</span>
-        </button>
-        <button class="tab-btn" id="tab-financieros" role="tab" aria-selected="false" aria-controls="panel-financieros" data-tab="financieros">
-          <span class="tab-icon"><i class="ti ti-clipboard-check"></i></span><span>Cumplimiento y Finanzas</span>
-        </button>
-        <button class="tab-btn" id="tab-personas" role="tab" aria-selected="false" aria-controls="panel-personas" data-tab="personas">
-          <span class="tab-icon"><i class="ti ti-heart"></i></span><span>Personas y Familia</span>
-        </button>
-        <button class="tab-btn" id="tab-empresariales" role="tab" aria-selected="false" aria-controls="panel-empresariales" data-tab="empresariales">
-          <span class="tab-icon"><i class="ti ti-briefcase"></i></span><span>Seguros Empresariales</span>
-        </button>
-      </div>
-
-      <div class="tab-panels">
-        <div class="tab-panel active" id="panel-generales" role="tabpanel">
+      <div class="accordion reveal" id="servicesAccordion">
+        <div class="accordion-item open" data-cat="generales">
+          <button class="accordion-header" id="acc-head-generales" aria-expanded="true" aria-controls="acc-panel-generales">
+            <span class="accordion-icon"><i class="ti ti-shield"></i></span>
+            <span class="accordion-title">Seguros y Servicios</span>
+            <span class="accordion-count">5 productos</span>
+            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="accordion-panel" id="acc-panel-generales" role="region" aria-labelledby="acc-head-generales">
+          <div class="accordion-panel-inner">
           <div class="services-grid">
             <div class="card-cluster">
               <p class="cluster-heading">Vehículos</p>
@@ -217,9 +163,19 @@
               <button class="service-cta" data-product="mascotas">Cotizar <span>↗</span></button>
             </article>
           </div>
+          </div>
+          </div>
         </div>
 
-        <div class="tab-panel" id="panel-financieros" role="tabpanel" hidden>
+        <div class="accordion-item" data-cat="financieros">
+          <button class="accordion-header" id="acc-head-financieros" aria-expanded="false" aria-controls="acc-panel-financieros">
+            <span class="accordion-icon"><i class="ti ti-clipboard-check"></i></span>
+            <span class="accordion-title">Cumplimiento y Finanzas</span>
+            <span class="accordion-count">3 productos</span>
+            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="accordion-panel" id="acc-panel-financieros" role="region" aria-labelledby="acc-head-financieros">
+          <div class="accordion-panel-inner">
           <div class="services-grid">
             <article class="service-card reveal-scale">
               <div class="service-icon"><i class="ti ti-clipboard-check"></i></div>
@@ -240,9 +196,19 @@
               <button class="service-cta" data-product="educativo">Cotizar <span>↗</span></button>
             </article>
           </div>
+          </div>
+          </div>
         </div>
 
-        <div class="tab-panel" id="panel-personas" role="tabpanel" hidden>
+        <div class="accordion-item" data-cat="personas">
+          <button class="accordion-header" id="acc-head-personas" aria-expanded="false" aria-controls="acc-panel-personas">
+            <span class="accordion-icon"><i class="ti ti-heart"></i></span>
+            <span class="accordion-title">Personas y Familia</span>
+            <span class="accordion-count">5 productos</span>
+            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="accordion-panel" id="acc-panel-personas" role="region" aria-labelledby="acc-head-personas">
+          <div class="accordion-panel-inner">
           <div class="services-grid">
             <article class="service-card reveal-scale">
               <div class="service-icon"><i class="ti ti-stethoscope"></i></div>
@@ -280,9 +246,19 @@
               <button class="service-cta" data-product="rc-medicos">Cotizar <span>↗</span></button>
             </article>
           </div>
+          </div>
+          </div>
         </div>
 
-        <div class="tab-panel" id="panel-empresariales" role="tabpanel" hidden>
+        <div class="accordion-item" data-cat="empresariales">
+          <button class="accordion-header" id="acc-head-empresariales" aria-expanded="false" aria-controls="acc-panel-empresariales">
+            <span class="accordion-icon"><i class="ti ti-briefcase"></i></span>
+            <span class="accordion-title">Seguros Empresariales</span>
+            <span class="accordion-count">4 productos</span>
+            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="accordion-panel" id="acc-panel-empresariales" role="region" aria-labelledby="acc-head-empresariales">
+          <div class="accordion-panel-inner">
           <div class="services-grid">
             <article class="service-card reveal-scale">
               <div class="service-icon"><i class="ti ti-building-store"></i></div>
@@ -309,6 +285,8 @@
               <button class="service-cta" data-product="colectivas">Cotizar <span>↗</span></button>
             </article>
           </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
@@ -316,10 +294,6 @@
 
   <!-- ====== COTIZADOR (WIZARD) ====== -->
   <section id="cotizador" class="section cotizador">
-    <div class="hero-fx" aria-hidden="true">
-      <div class="grid-plane"></div>
-      <div class="glow-gold"></div>
-    </div>
     <div class="section-container">
       <div class="section-header center on-dark reveal">
         <span class="eyebrow">Cotizador inteligente</span>

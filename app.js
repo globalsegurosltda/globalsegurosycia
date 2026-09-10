@@ -8,12 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initRevealOnScroll();
   initStatsCounters();
-  initTabs();
-  initCardTilt();
+  initAccordion();
   initCotizador();
   initContactForm();
   initBackToTop();
-  initFooterTabLinks();
+  initFooterAccordionLinks();
 });
 
 /* ================= NAVBAR ================= */
@@ -132,87 +131,35 @@ function initStatsCounters() {
   nums.forEach((n) => io.observe(n));
 }
 
-/* ================= SERVICIOS TABS ================= */
-function initTabs() {
-  const wrapper = document.getElementById('tabsWrapper');
-  if (!wrapper) return;
-  const indicator = document.getElementById('tabIndicator');
-  const btns = Array.from(wrapper.querySelectorAll('.tab-btn'));
-  const panels = document.querySelectorAll('.tab-panel');
+/* ================= SERVICIOS ACCORDION ================= */
+/* One category open at a time. Height animates via the CSS grid-rows trick
+   (see .accordion-panel) — no JS height math, no keyframes, fully interruptible. */
+function initAccordion() {
+  const accordion = document.getElementById('servicesAccordion');
+  if (!accordion) return;
+  const items = Array.from(accordion.querySelectorAll('.accordion-item'));
 
-  const moveIndicator = (btn) => {
-    indicator.style.width = `${btn.offsetWidth}px`;
-    indicator.style.transform = `translateX(${btn.offsetLeft - 4}px)`;
-  };
-
-  window.activateTab = (name) => {
-    const btn = wrapper.querySelector(`[data-tab="${name}"]`);
-    if (!btn) return;
-    btns.forEach((b) => { b.classList.toggle('active', b === btn); b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); b.tabIndex = b === btn ? 0 : -1; });
-    panels.forEach((p) => {
-      const active = p.id === `panel-${name}`;
-      p.classList.toggle('active', active);
-      p.toggleAttribute('hidden', !active);
+  window.openAccordionCategory = (cat) => {
+    items.forEach((item) => {
+      const open = item.dataset.cat === cat;
+      item.classList.toggle('open', open);
+      item.querySelector('.accordion-header').setAttribute('aria-expanded', String(open));
     });
-    moveIndicator(btn);
   };
 
-  btns.forEach((btn, i) => {
-    btn.tabIndex = btn.classList.contains('active') ? 0 : -1;
-    btn.addEventListener('click', () => window.activateTab(btn.dataset.tab));
-    // APG tab pattern: arrow keys move focus + selection across the tablist
-    btn.addEventListener('keydown', (e) => {
-      const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-      if (!dir) return;
-      e.preventDefault();
-      const next = btns[(i + dir + btns.length) % btns.length];
-      next.focus();
-      window.activateTab(next.dataset.tab);
+  items.forEach((item) => {
+    const header = item.querySelector('.accordion-header');
+    header.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('open');
+      window.openAccordionCategory(willOpen ? item.dataset.cat : null);
     });
   });
-  window.addEventListener('resize', () => moveIndicator(wrapper.querySelector('.tab-btn.active')));
-  requestAnimationFrame(() => moveIndicator(wrapper.querySelector('.tab-btn.active')));
 }
 
-function initFooterTabLinks() {
+function initFooterAccordionLinks() {
   document.querySelectorAll('[data-tab-link]').forEach((a) => {
     a.addEventListener('click', () => {
-      if (window.activateTab) window.activateTab(a.dataset.tabLink);
-    });
-  });
-}
-
-/* ================= CARD TILT ================= */
-/* Spring-smoothed, not 1:1 with the cursor — a raw mousemove→transform mapping
-   reads as artificial; lerping toward the target each frame gives it weight. */
-function initCardTilt() {
-  if (window.matchMedia('(pointer: coarse)').matches) return;
-  document.querySelectorAll('.service-card').forEach((card) => {
-    let targetX = 0, targetY = 0, curX = 0, curY = 0, raf = null, active = false;
-
-    const render = () => {
-      curX += (targetX - curX) * 0.18;
-      curY += (targetY - curY) * 0.18;
-      card.style.transform = `perspective(700px) rotateX(${(-curY * 7).toFixed(2)}deg) rotateY(${(curX * 9).toFixed(2)}deg) translateY(-4px)`;
-      if (active || Math.abs(targetX - curX) > 0.001 || Math.abs(targetY - curY) > 0.001) {
-        raf = requestAnimationFrame(render);
-      } else {
-        raf = null;
-      }
-    };
-    const ensureLoop = () => { if (!raf) raf = requestAnimationFrame(render); };
-
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      targetX = (e.clientX - rect.left) / rect.width - 0.5;
-      targetY = (e.clientY - rect.top) / rect.height - 0.5;
-      active = true;
-      ensureLoop();
-    });
-    card.addEventListener('mouseleave', () => {
-      active = false;
-      targetX = 0; targetY = 0;
-      ensureLoop();
+      if (window.openAccordionCategory) window.openAccordionCategory(a.dataset.tabLink);
     });
   });
 }
