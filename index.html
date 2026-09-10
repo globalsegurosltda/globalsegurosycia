@@ -15,8 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css?v=2" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230a1628' stroke='%23c9a227' stroke-width='3'/%3E%3C/svg%3E" />
 </head>
 <body>
@@ -67,7 +66,6 @@
     <div class="hero-fx" aria-hidden="true">
       <div class="grid-plane"></div>
       <div class="glow-gold"></div>
-      <div class="glow-orange"></div>
     </div>
 
     <div class="hero-orbit" aria-hidden="true">
@@ -80,9 +78,6 @@
         </g>
         <g class="orbit-spin-slow rev">
           <circle class="orbit-dot" cx="200" cy="50" r="5" fill="#ec6a1a"/>
-        </g>
-        <g class="orbit-spin-slow fast">
-          <circle class="orbit-dot" cx="200" cy="90" r="3" fill="#ffffff"/>
         </g>
         <use href="#globe-mark" x="120" y="120" width="160" height="160" opacity="0.95"/>
       </svg>
@@ -131,15 +126,15 @@
       </div>
 
       <div class="hero-card-stack">
-        <div class="hero-glass-card floaty">
+        <div class="hero-glass-card">
           <div class="hgc-icon"><i class="ti ti-shield-check"></i></div>
           <div class="hgc-text"><strong>Protección total</strong><span>16 líneas de seguro</span></div>
         </div>
-        <div class="hero-glass-card floaty delay-1">
+        <div class="hero-glass-card delay-1">
           <div class="hgc-icon"><i class="ti ti-bolt"></i></div>
           <div class="hgc-text"><strong>Respuesta rápida</strong><span>Asesoría en &lt;24h</span></div>
         </div>
-        <div class="hero-glass-card floaty delay-2">
+        <div class="hero-glass-card delay-2">
           <div class="hgc-icon"><i class="ti ti-certificate"></i></div>
           <div class="hgc-text"><strong>Respaldo real</strong><span>Certificados Fasecolda</span></div>
         </div>
@@ -149,7 +144,6 @@
         <span class="ts-label">Confían en nosotros</span>
         <span class="trust-chip"><i class="ti ti-shield-check"></i> Fasecolda</span>
         <span class="trust-chip"><i class="ti ti-building-bank"></i> Vigilado SFC</span>
-        <span class="trust-chip"><i class="ti ti-certificate"></i> RNT Vigente</span>
       </div>
     </div>
 
@@ -187,24 +181,29 @@
       <div class="tab-panels">
         <div class="tab-panel active" id="panel-generales" role="tabpanel">
           <div class="services-grid">
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-car"></i></div>
-              <h3 class="service-name">Autos</h3><p class="service-desc">Vehículos</p>
-              <p class="service-text">Cobertura para su vehículo ante accidentes, robo y daños a terceros.</p>
-              <button class="service-cta" data-product="autos">Cotizar <span>↗</span></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-motorbike"></i></div>
-              <h3 class="service-name">Motos</h3><p class="service-desc">Vehículos</p>
-              <p class="service-text">Protección para su moto ante accidente, robo o daños a terceros.</p>
-              <button class="service-cta" data-product="motos">Cotizar <span>↗</span></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-bike"></i></div>
-              <h3 class="service-name">Bicicleta</h3><p class="service-desc">Vehículos</p>
-              <p class="service-text">Aseguramiento de su bicicleta contra robo, daños y accidentes.</p>
-              <button class="service-cta" data-product="bicicleta">Cotizar <span>↗</span></button>
-            </article>
+            <div class="card-cluster">
+              <p class="cluster-heading">Vehículos</p>
+              <div class="cluster-grid">
+                <article class="service-card reveal-scale">
+                  <div class="service-icon"><i class="ti ti-car"></i></div>
+                  <h3 class="service-name">Autos</h3><p class="service-desc">Vehículos</p>
+                  <p class="service-text">Cobertura para su vehículo ante accidentes, robo y daños a terceros.</p>
+                  <button class="service-cta" data-product="autos">Cotizar <span>↗</span></button>
+                </article>
+                <article class="service-card reveal-scale">
+                  <div class="service-icon"><i class="ti ti-motorbike"></i></div>
+                  <h3 class="service-name">Motos</h3><p class="service-desc">Vehículos</p>
+                  <p class="service-text">Protección para su moto ante accidente, robo o daños a terceros.</p>
+                  <button class="service-cta" data-product="motos">Cotizar <span>↗</span></button>
+                </article>
+                <article class="service-card reveal-scale">
+                  <div class="service-icon"><i class="ti ti-bike"></i></div>
+                  <h3 class="service-name">Bicicleta</h3><p class="service-desc">Vehículos</p>
+                  <p class="service-text">Aseguramiento de su bicicleta contra robo, daños y accidentes.</p>
+                  <button class="service-cta" data-product="bicicleta">Cotizar <span>↗</span></button>
+                </article>
+              </div>
+            </div>
             <article class="service-card reveal-scale">
               <div class="service-icon"><i class="ti ti-home"></i></div>
               <h3 class="service-name">Hogar</h3><p class="service-desc">Patrimonio y bienes</p>
@@ -251,18 +250,23 @@
               <p class="service-text">Acceso a atención médica de calidad, exámenes y hospitalización.</p>
               <button class="service-cta" data-product="salud">Cotizar <span>↗</span></button>
             </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-shield-heart"></i></div>
-              <h3 class="service-name">Vida</h3><p class="service-desc">Vida y decesos</p>
-              <p class="service-text">Protección financiera para su familia en caso de fallecimiento o invalidez.</p>
-              <button class="service-cta" data-product="vida">Cotizar <span>↗</span></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-flower"></i></div>
-              <h3 class="service-name">Exequial</h3><p class="service-desc">Vida y decesos</p>
-              <p class="service-text">Cobertura de gastos funerarios y servicios exequiales para su familia.</p>
-              <button class="service-cta" data-product="exequial">Cotizar <span>↗</span></button>
-            </article>
+            <div class="card-cluster">
+              <p class="cluster-heading">Vida y decesos</p>
+              <div class="cluster-grid">
+                <article class="service-card reveal-scale">
+                  <div class="service-icon"><i class="ti ti-shield-heart"></i></div>
+                  <h3 class="service-name">Vida</h3><p class="service-desc">Vida y decesos</p>
+                  <p class="service-text">Protección financiera para su familia en caso de fallecimiento o invalidez.</p>
+                  <button class="service-cta" data-product="vida">Cotizar <span>↗</span></button>
+                </article>
+                <article class="service-card reveal-scale">
+                  <div class="service-icon"><i class="ti ti-flower"></i></div>
+                  <h3 class="service-name">Exequial</h3><p class="service-desc">Vida y decesos</p>
+                  <p class="service-text">Cobertura de gastos funerarios y servicios exequiales para su familia.</p>
+                  <button class="service-cta" data-product="exequial">Cotizar <span>↗</span></button>
+                </article>
+              </div>
+            </div>
             <article class="service-card reveal-scale">
               <div class="service-icon"><i class="ti ti-plane"></i></div>
               <h3 class="service-name">Viaje</h3><p class="service-desc">Viaje y asistencia</p>
@@ -360,15 +364,21 @@
           <div class="selection-recap" id="selectionRecap" style="margin-bottom:1.4rem;"></div>
           <form id="wizardForm">
             <div class="form-grid">
-              <div class="field"><label>Nombre completo <span class="req">*</span></label><input type="text" id="q-nombre" placeholder="Su nombre" required /></div>
-              <div class="field"><label>Teléfono / WhatsApp <span class="req">*</span></label><input type="tel" id="q-telefono" placeholder="300 000 0000" required /></div>
-              <div class="field"><label>Ciudad</label><input type="text" id="q-ciudad" placeholder="Bogotá D.C." /></div>
-              <div class="field"><label>Correo electrónico</label><input type="email" id="q-email" placeholder="correo@ejemplo.com" /></div>
+              <div class="field"><label for="q-nombre">Nombre completo <span class="req">*</span></label><input type="text" id="q-nombre" placeholder="Su nombre" required /></div>
+              <div class="field"><label for="q-telefono">Teléfono / WhatsApp <span class="req">*</span></label><input type="tel" id="q-telefono" placeholder="300 000 0000" required aria-describedby="q-telefono-error" /><span class="field-error" id="q-telefono-error"></span></div>
+              <div class="field"><label for="q-ciudad">Ciudad</label><input type="text" id="q-ciudad" placeholder="Bogotá D.C." /></div>
+              <div class="field"><label for="q-email">Correo electrónico</label><input type="email" id="q-email" placeholder="correo@ejemplo.com" /></div>
             </div>
             <div class="form-grid" id="dynamicFields"></div>
             <div class="field span-2" style="margin-top:1.1rem;">
-              <label>¿Algo más que debamos saber?</label>
+              <label for="q-notas">¿Algo más que debamos saber?</label>
               <textarea id="q-notas" rows="3" placeholder="Opcional"></textarea>
+            </div>
+            <div class="field span-2" style="margin-top:1.1rem;">
+              <label class="checkbox-option on-dark" for="q-terminos">
+                <input type="checkbox" id="q-terminos" required />
+                <span>Acepto la <a href="#" class="link-inline">política de privacidad</a> (Ley 1581 de 2012) para que un asesor me contacte <span class="req">*</span></span>
+              </label>
             </div>
           </form>
           <div class="wizard-nav">
@@ -385,11 +395,8 @@
           </div>
           <div class="summary-card" id="summaryCard"></div>
           <div class="summary-actions">
-            <button class="btn btn-whatsapp" id="sendWhatsapp">
+            <button class="btn btn-whatsapp btn-full" id="sendWhatsapp">
               <i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp
-            </button>
-            <button class="btn btn-primary" id="sendEmail">
-              <span id="sendEmailText">Enviar por correo</span>
             </button>
           </div>
           <div class="wizard-nav">
@@ -519,12 +526,12 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-nombre">Nombre completo <span class="required">*</span></label>
-                <input type="text" id="contact-nombre" name="nombre" required placeholder="Juan García" autocomplete="name" />
+                <input type="text" id="contact-nombre" name="nombre" required aria-describedby="contact-nombre-error" placeholder="Juan García" autocomplete="name" />
                 <span class="field-error" id="contact-nombre-error"></span>
               </div>
               <div class="form-group">
                 <label for="contact-email">Correo electrónico <span class="required">*</span></label>
-                <input type="email" id="contact-email" name="email" required placeholder="juan@ejemplo.com" autocomplete="email" />
+                <input type="email" id="contact-email" name="email" required aria-describedby="contact-email-error" placeholder="juan@ejemplo.com" autocomplete="email" />
                 <span class="field-error" id="contact-email-error"></span>
               </div>
             </div>
@@ -535,7 +542,7 @@
               </div>
               <div class="form-group">
                 <label for="contact-asunto">Asunto <span class="required">*</span></label>
-                <select id="contact-asunto" name="asunto" required>
+                <select id="contact-asunto" name="asunto" required aria-describedby="contact-asunto-error">
                   <option value="">Seleccione un asunto</option>
                   <option>Cotización de seguro</option>
                   <option>Información de productos</option>
@@ -548,7 +555,7 @@
             </div>
             <div class="form-group">
               <label for="contact-mensaje">Mensaje <span class="required">*</span></label>
-              <textarea id="contact-mensaje" name="mensaje" rows="4" required placeholder="Escriba su mensaje aquí..."></textarea>
+              <textarea id="contact-mensaje" name="mensaje" rows="4" required aria-describedby="contact-mensaje-error" placeholder="Escriba su mensaje aquí..."></textarea>
               <span class="field-error" id="contact-mensaje-error"></span>
             </div>
             <div class="form-group">
@@ -557,15 +564,14 @@
                 <span>Acepto la <a href="#" class="link-inline">política de privacidad</a> (Ley 1581 de 2012)</span>
               </label>
             </div>
-            <button type="submit" class="btn btn-primary btn-full" id="contactSubmitBtn">
-              <span>Enviar mensaje</span>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+            <button type="submit" class="btn btn-whatsapp btn-full" id="contactSubmitBtn">
+              <i class="ti ti-brand-whatsapp"></i> <span>Enviar por WhatsApp</span>
             </button>
           </form>
           <div class="contact-success" id="contactSuccess" hidden>
             <div class="success-icon"><i class="ti ti-circle-check"></i></div>
-            <h4>¡Mensaje enviado!</h4>
-            <p>Nos comunicaremos con usted pronto. Gracias por contactar a Global Seguros y Cia Ltda.</p>
+            <h4>¡Casi listo!</h4>
+            <p>Abrimos WhatsApp con su mensaje ya escrito — solo confirme el envío allí y nos comunicaremos con usted pronto.</p>
           </div>
         </div>
       </div>
@@ -584,7 +590,6 @@
           <p class="footer-desc">Agencia de seguros colombiana comprometida con su tranquilidad y la de su familia. Certificados y avalados por Fasecolda.</p>
           <div class="footer-certifications">
             <span class="cert-badge">Fasecolda</span>
-            <span class="cert-badge">RNT Vigente</span>
             <span class="cert-badge">Vigilado SFC</span>
           </div>
         </div>
@@ -632,7 +637,7 @@
     <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
   </button>
 
-  <div class="toast-wrap" id="toastWrap"></div>
+  <div class="toast-wrap" id="toastWrap" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
 </body>
