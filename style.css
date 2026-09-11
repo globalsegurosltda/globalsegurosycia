@@ -46,7 +46,7 @@
   --shadow-lg: 0 20px 48px rgba(18,36,61,0.14);
 
   --topbar-height: 38px;
-  --nav-height: 74px;
+  --nav-height: 82px;
 
   --ease: cubic-bezier(.22,.68,0,1.01);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -169,8 +169,8 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 
 /* Logo: la imagen real manda; el isotipo SVG solo aparece si el archivo falta */
 .brand, .footer-logo { display: flex; align-items: center; }
-.brand-logo { height: 46px; width: auto; object-fit: contain; }
-.brand-logo-footer { height: 42px; }
+.footer-logo { gap: 0.65rem; }
+.brand-logo { height: 54px; width: auto; object-fit: contain; }
 .brand-logo.is-missing { display: none; }
 .brand-fallback { display: none; align-items: center; gap: 0.65rem; }
 .brand-logo.is-missing + .brand-fallback { display: flex; }
