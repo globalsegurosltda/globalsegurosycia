@@ -14,25 +14,23 @@
   <title>Global Seguros y Cia Ltda | Protegemos tu mundo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=3" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230a1628' stroke='%23c9a227' stroke-width='3'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2312243d'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='13' fill='none' stroke='%237a99c0' stroke-width='2.5'/%3E%3Cellipse cx='32' cy='32' rx='13' ry='30' fill='none' stroke='%237a99c0' stroke-width='2.5'/%3E%3C/svg%3E" />
 </head>
 <body>
 
   <!-- Reusable SVG symbols -->
   <svg style="display:none" aria-hidden="true">
     <symbol id="globe-mark" viewBox="0 0 64 64">
-      <circle cx="32" cy="32" r="29" fill="#0a1628" stroke="#c9a227" stroke-width="3"/>
-      <circle cx="32" cy="32" r="29" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
-      <g fill="#e7ecf5" opacity="0.92">
-        <path d="M14 24c2-3 5-4 7-3 1 .6 1 2-1 3-1 .5-1 1.5 0 2 2 1 2 3 0 4-1 .6-2.4.4-3.2-.6-1.7-2-3-3.6-2.8-5.4z"/>
-        <path d="M22 20c3-1.6 7-1.4 9 .4 1.6 1.5 1 3-1 3.4-2 .4-3 1.8-2 3.4 1.2 2 .2 4-2 4.2-2 .2-4-1-5-3-1.4-2.8-1.6-6.4 1-8.4z"/>
-        <path d="M36 18c3-.6 6 .4 7.6 2.6 1 1.4.2 3-1.6 3-1.4 0-2 1.2-1 2.4 1.4 1.8.4 4-1.8 4.2-2.6.2-5-1.6-5.6-4.4-.6-2.8.5-6.9 2.4-7.8z"/>
-        <path d="M46 22c1.6-.4 3.4.4 3.8 2 .3 1.2-.5 2-1.6 1.8-1-.2-1.6.6-1.2 1.6.5 1.4-.4 2.6-1.8 2.4-1.6-.2-2.6-1.8-2.4-3.4.2-1.8 1.5-4 3.2-4.4z"/>
+      <circle cx="32" cy="32" r="30" fill="#12243d"/>
+      <g fill="none" stroke="#7a99c0" stroke-width="1.6" opacity="0.9">
+        <ellipse cx="32" cy="32" rx="30" ry="13"/>
+        <ellipse cx="32" cy="32" rx="30" ry="24"/>
+        <ellipse cx="32" cy="32" rx="13" ry="30"/>
+        <ellipse cx="32" cy="32" rx="24" ry="30"/>
+        <circle cx="32" cy="32" r="30"/>
       </g>
-      <ellipse cx="32" cy="32" rx="29" ry="12" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="0.8"/>
-      <ellipse cx="32" cy="32" rx="12" ry="29" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="0.8"/>
     </symbol>
     <symbol id="arrow-diag" viewBox="0 0 16 16">
       <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -40,16 +38,33 @@
     <symbol id="arrow-right" viewBox="0 0 16 16">
       <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     </symbol>
+    <symbol id="chevron-down" viewBox="0 0 20 20">
+      <path d="M5.5 7.5L10 12l4.5-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
   </svg>
+
+  <!-- ====== TOP UTILITY BAR ====== -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span class="topbar-tagline">Agencia de seguros · Bogotá D.C.</span>
+      <div class="topbar-links">
+        <a href="tel:+5716001234"><i class="ti ti-phone"></i> (601) 600-1234</a>
+        <a href="https://wa.me/573112959002?text=Hola%2C%20quiero%20cotizar%20un%20seguro%20con%20Global%20Seguros%20y%20C%C3%ADa" target="_blank" rel="noopener noreferrer"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ====== NAVBAR ====== -->
   <nav class="navbar" id="navbar" aria-label="Navegación principal">
     <div class="nav-container">
       <a href="#inicio" class="brand" aria-label="Global Seguros - Inicio">
-        <svg class="brand-mark" viewBox="0 0 64 64"><use href="#globe-mark"/></svg>
-        <span class="brand-text">
-          <span class="brand-word">GlobalSeguros</span>
-          <span class="brand-tag">Protegemos tu mundo</span>
+        <img src="assets/logo.png" alt="Global Seguros — Protegemos tu mundo" class="brand-logo" onerror="this.classList.add('is-missing')" />
+        <span class="brand-fallback">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#globe-mark"/></svg>
+          <span class="brand-text">
+            <span class="brand-word"><b>Global</b>Seguros</span>
+            <span class="brand-tag">Protegemos tu mundo</span>
+          </span>
         </span>
       </a>
 
@@ -58,7 +73,53 @@
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li class="has-mega">
+          <button class="nav-link nav-link-mega" id="megaTrigger" aria-expanded="false" aria-controls="megaPanel">
+            Seguros <svg class="nav-chevron" viewBox="0 0 20 20" aria-hidden="true"><use href="#chevron-down"/></svg>
+          </button>
+
+          <div class="mega-panel" id="megaPanel" hidden>
+            <div class="mega-inner">
+              <div class="mega-col">
+                <p class="mega-heading">Su vehículo</p>
+                <ul>
+                  <li><a href="#cat-vehiculo" data-goto-cat="vehiculo">Autos</a></li>
+                  <li><a href="#cat-vehiculo" data-goto-cat="vehiculo">Motos</a></li>
+                  <li><a href="#cat-vehiculo" data-goto-cat="vehiculo">Bicicleta</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-heading">Usted y su familia</p>
+                <ul>
+                  <li><a href="#cat-familia" data-goto-cat="familia">Salud</a></li>
+                  <li><a href="#cat-familia" data-goto-cat="familia">Vida</a></li>
+                  <li><a href="#cat-familia" data-goto-cat="familia">Exequial</a></li>
+                  <li><a href="#cat-familia" data-goto-cat="familia">Viaje</a></li>
+                  <li><a href="#cat-familia" data-goto-cat="familia">Educativo</a></li>
+                  <li><a href="#cat-familia" data-goto-cat="familia">Mascotas</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-heading">Sus bienes</p>
+                <ul>
+                  <li><a href="#cat-bienes" data-goto-cat="bienes">Hogar</a></li>
+                  <li><a href="#cat-bienes" data-goto-cat="bienes">Arrendamiento</a></li>
+                  <li><a href="#cat-bienes" data-goto-cat="bienes">Copropiedad</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-heading">Su empresa</p>
+                <ul>
+                  <li><a href="#cat-empresa" data-goto-cat="empresa">Pymes</a></li>
+                  <li><a href="#cat-empresa" data-goto-cat="empresa">Cumplimiento</a></li>
+                  <li><a href="#cat-empresa" data-goto-cat="empresa">Transporte de mercancías</a></li>
+                  <li><a href="#cat-empresa" data-goto-cat="empresa">Colectivas y beneficios</a></li>
+                  <li><a href="#cat-empresa" data-goto-cat="empresa">RC Médicos y Profesionales</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
         <li><a href="#cotizador" class="nav-link">Cotizador</a></li>
         <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
         <li><a href="#contacto" class="nav-link">Contacto</a></li>
@@ -69,221 +130,163 @@
 
   <!-- ====== HERO ====== -->
   <section id="inicio" class="hero">
-    <div class="section-container hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot" aria-hidden="true"></span>
-        Agencia de seguros certificada
-      </div>
-      <h1 class="hero-title">
-        Su tranquilidad no se cotiza, <span class="accent">se protege.</span>
-      </h1>
+    <div class="hero-content">
+      <h1 class="hero-title">Su tranquilidad no se cotiza, <span class="accent">se protege.</span></h1>
       <p class="hero-desc">
         Comparamos entre las mejores aseguradoras de Colombia para encontrar el seguro que
         realmente necesita. Asesoría honesta, sin letra pequeña.
       </p>
       <div class="hero-actions">
         <a href="#cotizador" class="btn btn-primary">Cotizar en 2 minutos</a>
-        <a href="#servicios" class="btn btn-secondary">Ver todos los seguros</a>
+        <a href="#servicios" class="btn btn-ghost">Ver todos los seguros</a>
       </div>
-
-      <div class="trust-strip">
-        <span class="ts-label">Confían en nosotros</span>
-        <span class="trust-chip"><i class="ti ti-shield-check"></i> Fasecolda</span>
-      </div>
+      <p class="hero-note">Respuesta en menos de 24 horas · Sin costo ni compromiso</p>
     </div>
   </section>
 
   <!-- ====== SERVICIOS ====== -->
-  <section id="servicios" class="section">
+  <section id="servicios" class="section section-white">
     <div class="section-container">
       <div class="section-header reveal">
-        <span class="eyebrow">Nuestros seguros</span>
-        <h2 class="section-title">Cobertura para cada <span class="accent">etapa de su vida</span></h2>
-        <p class="section-subtitle">Seleccione una categoría y cotice el seguro ideal en minutos con nuestro asesor virtual.</p>
+        <span class="accent-rule" aria-hidden="true"></span>
+        <h2 class="section-title">Nuestros seguros</h2>
+        <p class="section-subtitle">Cobertura para cada etapa de su vida y de su negocio, con el respaldo de las principales aseguradoras del país.</p>
       </div>
 
-      <div class="accordion reveal" id="servicesAccordion">
-        <div class="accordion-item open" data-cat="generales">
-          <button class="accordion-header" id="acc-head-generales" aria-expanded="true" aria-controls="acc-panel-generales">
-            <span class="accordion-icon"><i class="ti ti-shield"></i></span>
-            <span class="accordion-title">Seguros y Servicios</span>
-            <span class="accordion-count">5 productos</span>
-            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-          </button>
-          <div class="accordion-panel" id="acc-panel-generales" role="region" aria-labelledby="acc-head-generales">
-          <div class="accordion-panel-inner">
-          <div class="services-grid">
-            <div class="card-cluster">
-              <p class="cluster-heading">Vehículos</p>
-              <div class="cluster-grid">
-                <article class="service-card reveal-scale">
-                  <div class="service-icon"><i class="ti ti-car"></i></div>
-                  <h3 class="service-name">Autos</h3><p class="service-desc">Vehículos</p>
-                  <p class="service-text">Cobertura para su vehículo ante accidentes, robo y daños a terceros.</p>
-                  <button class="service-cta" data-product="autos">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-                </article>
-                <article class="service-card reveal-scale">
-                  <div class="service-icon"><i class="ti ti-motorbike"></i></div>
-                  <h3 class="service-name">Motos</h3><p class="service-desc">Vehículos</p>
-                  <p class="service-text">Protección para su moto ante accidente, robo o daños a terceros.</p>
-                  <button class="service-cta" data-product="motos">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-                </article>
-                <article class="service-card reveal-scale">
-                  <div class="service-icon"><i class="ti ti-bike"></i></div>
-                  <h3 class="service-name">Bicicleta</h3><p class="service-desc">Vehículos</p>
-                  <p class="service-text">Aseguramiento de su bicicleta contra robo, daños y accidentes.</p>
-                  <button class="service-cta" data-product="bicicleta">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-                </article>
-              </div>
-            </div>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-home"></i></div>
-              <h3 class="service-name">Hogar</h3><p class="service-desc">Patrimonio y bienes</p>
-              <p class="service-text">Protege su vivienda y contenidos ante incendio, robo y desastres naturales.</p>
-              <button class="service-cta" data-product="hogar">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-paw"></i></div>
-              <h3 class="service-name">Mascotas</h3><p class="service-desc">Mascotas</p>
-              <p class="service-text">Cobertura veterinaria y de responsabilidad civil para su mascota.</p>
-              <button class="service-cta" data-product="mascotas">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-          </div>
-          </div>
-          </div>
+      <div class="cat-group" id="cat-vehiculo">
+        <div class="cat-head"><h3 class="cat-title">Su vehículo</h3></div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="ti ti-car"></i></div>
+            <h4 class="service-name">Autos</h4>
+            <p class="service-text">Cobertura para su vehículo ante accidentes, robo y daños a terceros.</p>
+            <button class="service-cta" data-product="autos">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:1">
+            <div class="service-icon"><i class="ti ti-motorbike"></i></div>
+            <h4 class="service-name">Motos</h4>
+            <p class="service-text">Protección para su moto ante accidente, robo o daños a terceros.</p>
+            <button class="service-cta" data-product="motos">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:2">
+            <div class="service-icon"><i class="ti ti-bike"></i></div>
+            <h4 class="service-name">Bicicleta</h4>
+            <p class="service-text">Aseguramiento de su bicicleta contra robo, daños y accidentes.</p>
+            <button class="service-cta" data-product="bicicleta">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
         </div>
+      </div>
 
-        <div class="accordion-item" data-cat="financieros">
-          <button class="accordion-header" id="acc-head-financieros" aria-expanded="false" aria-controls="acc-panel-financieros">
-            <span class="accordion-icon"><i class="ti ti-clipboard-check"></i></span>
-            <span class="accordion-title">Cumplimiento y Finanzas</span>
-            <span class="accordion-count">3 productos</span>
-            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-          </button>
-          <div class="accordion-panel" id="acc-panel-financieros" role="region" aria-labelledby="acc-head-financieros">
-          <div class="accordion-panel-inner">
-          <div class="services-grid">
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-clipboard-check"></i></div>
-              <h3 class="service-name">Cumplimiento</h3><p class="service-desc">Caución y garantías</p>
-              <p class="service-text">Garantiza el cumplimiento de contratos públicos y privados ante el Estado o terceros.</p>
-              <button class="service-cta" data-product="cumplimiento">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-key"></i></div>
-              <h3 class="service-name">Arrendamiento</h3><p class="service-desc">Caución y garantías</p>
-              <p class="service-text">Asegura el pago del canon y protege su inmueble frente al inquilino.</p>
-              <button class="service-cta" data-product="arrendamiento">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-school"></i></div>
-              <h3 class="service-name">Educativo</h3><p class="service-desc">Ahorro y pensiones</p>
-              <p class="service-text">Ahorro programado para asegurar la educación de sus hijos.</p>
-              <button class="service-cta" data-product="educativo">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-          </div>
-          </div>
-          </div>
+      <div class="cat-group" id="cat-familia">
+        <div class="cat-head"><h3 class="cat-title">Usted y su familia</h3></div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="ti ti-stethoscope"></i></div>
+            <h4 class="service-name">Salud</h4>
+            <p class="service-text">Acceso a atención médica de calidad, exámenes y hospitalización.</p>
+            <button class="service-cta" data-product="salud">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:1">
+            <div class="service-icon"><i class="ti ti-shield-heart"></i></div>
+            <h4 class="service-name">Vida</h4>
+            <p class="service-text">Protección financiera para su familia en caso de fallecimiento o invalidez.</p>
+            <button class="service-cta" data-product="vida">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:2">
+            <div class="service-icon"><i class="ti ti-flower"></i></div>
+            <h4 class="service-name">Exequial</h4>
+            <p class="service-text">Cobertura de gastos funerarios y servicios exequiales para su familia.</p>
+            <button class="service-cta" data-product="exequial">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:3">
+            <div class="service-icon"><i class="ti ti-plane"></i></div>
+            <h4 class="service-name">Viaje</h4>
+            <p class="service-text">Asistencia médica y protección de su equipaje durante sus viajes.</p>
+            <button class="service-cta" data-product="viaje">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:4">
+            <div class="service-icon"><i class="ti ti-school"></i></div>
+            <h4 class="service-name">Educativo</h4>
+            <p class="service-text">Ahorro programado para asegurar la educación de sus hijos.</p>
+            <button class="service-cta" data-product="educativo">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:5">
+            <div class="service-icon"><i class="ti ti-paw"></i></div>
+            <h4 class="service-name">Mascotas</h4>
+            <p class="service-text">Cobertura veterinaria y de responsabilidad civil para su mascota.</p>
+            <button class="service-cta" data-product="mascotas">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
         </div>
+      </div>
 
-        <div class="accordion-item" data-cat="personas">
-          <button class="accordion-header" id="acc-head-personas" aria-expanded="false" aria-controls="acc-panel-personas">
-            <span class="accordion-icon"><i class="ti ti-heart"></i></span>
-            <span class="accordion-title">Personas y Familia</span>
-            <span class="accordion-count">5 productos</span>
-            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-          </button>
-          <div class="accordion-panel" id="acc-panel-personas" role="region" aria-labelledby="acc-head-personas">
-          <div class="accordion-panel-inner">
-          <div class="services-grid">
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-stethoscope"></i></div>
-              <h3 class="service-name">Salud</h3><p class="service-desc">Salud</p>
-              <p class="service-text">Acceso a atención médica de calidad, exámenes y hospitalización.</p>
-              <button class="service-cta" data-product="salud">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <div class="card-cluster">
-              <p class="cluster-heading">Vida y decesos</p>
-              <div class="cluster-grid">
-                <article class="service-card reveal-scale">
-                  <div class="service-icon"><i class="ti ti-shield-heart"></i></div>
-                  <h3 class="service-name">Vida</h3><p class="service-desc">Vida y decesos</p>
-                  <p class="service-text">Protección financiera para su familia en caso de fallecimiento o invalidez.</p>
-                  <button class="service-cta" data-product="vida">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-                </article>
-                <article class="service-card reveal-scale">
-                  <div class="service-icon"><i class="ti ti-flower"></i></div>
-                  <h3 class="service-name">Exequial</h3><p class="service-desc">Vida y decesos</p>
-                  <p class="service-text">Cobertura de gastos funerarios y servicios exequiales para su familia.</p>
-                  <button class="service-cta" data-product="exequial">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-                </article>
-              </div>
-            </div>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-plane"></i></div>
-              <h3 class="service-name">Viaje</h3><p class="service-desc">Viaje y asistencia</p>
-              <p class="service-text">Asistencia médica y protección de su equipaje durante sus viajes.</p>
-              <button class="service-cta" data-product="viaje">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-scale"></i></div>
-              <h3 class="service-name">RC Médicos &amp; Profesionales</h3><p class="service-desc">Responsabilidad civil</p>
-              <p class="service-text">Responsabilidad civil por errores u omisiones en el ejercicio profesional.</p>
-              <button class="service-cta" data-product="rc-medicos">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-          </div>
-          </div>
-          </div>
+      <div class="cat-group" id="cat-bienes">
+        <div class="cat-head"><h3 class="cat-title">Sus bienes</h3></div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="ti ti-home"></i></div>
+            <h4 class="service-name">Hogar</h4>
+            <p class="service-text">Protege su vivienda y contenidos ante incendio, robo y desastres naturales.</p>
+            <button class="service-cta" data-product="hogar">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:1">
+            <div class="service-icon"><i class="ti ti-key"></i></div>
+            <h4 class="service-name">Arrendamiento</h4>
+            <p class="service-text">Asegura el pago del canon y protege su inmueble frente al inquilino.</p>
+            <button class="service-cta" data-product="arrendamiento">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:2">
+            <div class="service-icon"><i class="ti ti-building-community"></i></div>
+            <h4 class="service-name">Copropiedad</h4>
+            <p class="service-text">Cobertura para las áreas comunes y bienes de su conjunto residencial o edificio.</p>
+            <button class="service-cta" data-product="copropiedad">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
         </div>
+      </div>
 
-        <div class="accordion-item" data-cat="empresariales">
-          <button class="accordion-header" id="acc-head-empresariales" aria-expanded="false" aria-controls="acc-panel-empresariales">
-            <span class="accordion-icon"><i class="ti ti-briefcase"></i></span>
-            <span class="accordion-title">Seguros Empresariales</span>
-            <span class="accordion-count">4 productos</span>
-            <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-          </button>
-          <div class="accordion-panel" id="acc-panel-empresariales" role="region" aria-labelledby="acc-head-empresariales">
-          <div class="accordion-panel-inner">
-          <div class="services-grid">
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-building-store"></i></div>
-              <h3 class="service-name">Pymes</h3><p class="service-desc">Patrimonio y bienes</p>
-              <p class="service-text">Protección integral para los activos y la operación de su pequeña o mediana empresa.</p>
-              <button class="service-cta" data-product="pymes">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-building-community"></i></div>
-              <h3 class="service-name">Copropiedad</h3><p class="service-desc">Patrimonio y bienes</p>
-              <p class="service-text">Cobertura para las áreas comunes y bienes de su conjunto residencial o edificio.</p>
-              <button class="service-cta" data-product="copropiedad">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-truck"></i></div>
-              <h3 class="service-name">Transporte de Mercancías</h3><p class="service-desc">Transporte de mercancías</p>
-              <p class="service-text">Asegura su carga durante el transporte terrestre, marítimo o aéreo.</p>
-              <button class="service-cta" data-product="transporte">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-            <article class="service-card reveal-scale">
-              <div class="service-icon"><i class="ti ti-users"></i></div>
-              <h3 class="service-name">Colectivas y Beneficios Corporativos</h3><p class="service-desc">Vida y decesos</p>
-              <p class="service-text">Planes de vida y beneficios grupales para los empleados de su empresa.</p>
-              <button class="service-cta" data-product="colectivas">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-diag"/></svg></button>
-            </article>
-          </div>
-          </div>
-          </div>
+      <div class="cat-group" id="cat-empresa">
+        <div class="cat-head"><h3 class="cat-title">Su empresa</h3></div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="ti ti-building-store"></i></div>
+            <h4 class="service-name">Pymes</h4>
+            <p class="service-text">Protección integral para los activos y la operación de su pequeña o mediana empresa.</p>
+            <button class="service-cta" data-product="pymes">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:1">
+            <div class="service-icon"><i class="ti ti-clipboard-check"></i></div>
+            <h4 class="service-name">Cumplimiento</h4>
+            <p class="service-text">Garantiza el cumplimiento de contratos públicos y privados ante el Estado o terceros.</p>
+            <button class="service-cta" data-product="cumplimiento">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:2">
+            <div class="service-icon"><i class="ti ti-truck"></i></div>
+            <h4 class="service-name">Transporte de mercancías</h4>
+            <p class="service-text">Asegura su carga durante el transporte terrestre, marítimo o aéreo.</p>
+            <button class="service-cta" data-product="transporte">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:3">
+            <div class="service-icon"><i class="ti ti-users"></i></div>
+            <h4 class="service-name">Colectivas y beneficios</h4>
+            <p class="service-text">Planes de vida y beneficios grupales para los empleados de su empresa.</p>
+            <button class="service-cta" data-product="colectivas">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
+          <article class="service-card reveal" style="--i:4">
+            <div class="service-icon"><i class="ti ti-scale"></i></div>
+            <h4 class="service-name">RC Médicos y Profesionales</h4>
+            <p class="service-text">Responsabilidad civil por errores u omisiones en el ejercicio profesional.</p>
+            <button class="service-cta" data-product="rc-medicos">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ====== COTIZADOR (WIZARD) ====== -->
-  <section id="cotizador" class="section cotizador">
+  <section id="cotizador" class="section section-alt">
     <div class="section-container">
-      <div class="section-header center on-dark reveal">
-        <span class="eyebrow">Cotizador inteligente</span>
-        <h2 class="section-title">Arme su cotización <span class="accent">en 3 pasos</span></h2>
+      <div class="section-header center reveal">
+        <span class="accent-rule" aria-hidden="true"></span>
+        <h2 class="section-title">Arme su cotización en 3 pasos</h2>
         <p class="section-subtitle">Cuéntenos qué necesita proteger y un asesor certificado le enviará una propuesta a la medida.</p>
       </div>
 
@@ -300,7 +303,7 @@
         <div class="wizard-step active" data-step="1">
           <div class="wizard-heading">
             <h3>¿Qué le gustaría asegurar?</h3>
-            <p>Elija una categoría y luego el producto específico.</p>
+            <p>Elija el producto que necesita cotizar.</p>
           </div>
           <div class="product-grid" id="wizardProductGrid"></div>
           <div class="wizard-nav">
@@ -315,7 +318,7 @@
             <h3>Cuéntenos un poco más</h3>
             <p>Solo lo esencial para preparar su cotización.</p>
           </div>
-          <div class="selection-recap" id="selectionRecap" style="margin-bottom:1.4rem;"></div>
+          <div class="selection-recap" id="selectionRecap"></div>
           <form id="wizardForm">
             <div class="form-grid">
               <div class="field"><label for="q-nombre">Nombre completo <span class="req">*</span></label><input type="text" id="q-nombre" placeholder="Su nombre" required /></div>
@@ -323,20 +326,15 @@
               <div class="field"><label for="q-ciudad">Ciudad</label><input type="text" id="q-ciudad" placeholder="Bogotá D.C." /></div>
               <div class="field"><label for="q-email">Correo electrónico</label><input type="email" id="q-email" placeholder="correo@ejemplo.com" /></div>
             </div>
-            <div class="form-grid" id="dynamicFields"></div>
-            <div class="field span-2" style="margin-top:1.1rem;">
-              <label for="q-notas">¿Algo más que debamos saber?</label>
-              <textarea id="q-notas" rows="3" placeholder="Opcional"></textarea>
-            </div>
-            <div class="field span-2" style="margin-top:1.1rem;">
-              <label class="checkbox-option on-dark" for="q-terminos">
-                <input type="checkbox" id="q-terminos" required />
-                <span>Acepto la <a href="#" class="link-inline">política de privacidad</a> (Ley 1581 de 2012) para que un asesor me contacte <span class="req">*</span></span>
-              </label>
-            </div>
+            <div id="dynamicFields" class="form-grid"></div>
+            <div class="field"><label for="q-notas">Notas adicionales</label><textarea id="q-notas" rows="3" placeholder="Cuéntenos cualquier detalle que debamos tener en cuenta"></textarea></div>
+            <label class="checkbox-option" for="q-terminos">
+              <input type="checkbox" id="q-terminos" required />
+              <span>Acepto la <a href="#" class="link-inline">política de privacidad</a> (Ley 1581 de 2012)</span>
+            </label>
           </form>
           <div class="wizard-nav">
-            <button class="btn btn-secondary btn-on-dark" data-back="1"><svg class="icon-arrow icon-arrow-back" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg> Atrás</button>
+            <button class="btn btn-ghost" data-back="1"><svg class="icon-arrow icon-arrow-back" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg> Atrás</button>
             <button class="btn btn-primary" id="toStep3">Ver resumen <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
           </div>
         </div>
@@ -344,17 +342,15 @@
         <!-- STEP 3: resumen -->
         <div class="wizard-step" data-step="3">
           <div class="wizard-heading">
-            <h3>Confirme y envíe</h3>
-            <p>Revise los datos antes de enviarlos a nuestros asesores.</p>
+            <h3>Revise y envíe</h3>
+            <p>Confirme que todo esté correcto antes de enviarnos su solicitud.</p>
           </div>
           <div class="summary-card" id="summaryCard"></div>
           <div class="summary-actions">
-            <button class="btn btn-whatsapp btn-full" id="sendWhatsapp">
-              <i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp
-            </button>
+            <button class="btn btn-whatsapp" id="sendWhatsapp"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
           </div>
           <div class="wizard-nav">
-            <button class="btn btn-secondary btn-on-dark" data-back="2"><svg class="icon-arrow icon-arrow-back" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg> Atrás</button>
+            <button class="btn btn-ghost" data-back="2"><svg class="icon-arrow icon-arrow-back" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg> Atrás</button>
             <span></span>
           </div>
         </div>
@@ -368,7 +364,7 @@
             </svg>
             <h3>¡Solicitud enviada!</h3>
             <p>Un asesor certificado de Global Seguros se comunicará con usted en menos de 24 horas con su cotización.</p>
-            <button class="btn btn-secondary btn-on-dark" id="restartWizard">Cotizar otro seguro</button>
+            <button class="btn btn-ghost" id="restartWizard">Cotizar otro seguro</button>
           </div>
         </div>
       </div>
@@ -376,12 +372,12 @@
   </section>
 
   <!-- ====== NOSOTROS ====== -->
-  <section id="nosotros" class="section">
+  <section id="nosotros" class="section section-white">
     <div class="section-container">
       <div class="nosotros-layout">
         <div class="nosotros-info reveal">
-          <span class="eyebrow">Sobre nosotros</span>
-          <h2 class="section-title">Más de 15 años <span class="accent">protegiendo a Colombia</span></h2>
+          <span class="accent-rule" aria-hidden="true"></span>
+          <h2 class="section-title">Más de 15 años protegiendo a Colombia</h2>
           <p><strong>Global Seguros y Cia Ltda</strong> es una agencia de seguros colombiana con más de 15 años de experiencia en el mercado. Trabajamos con las mejores aseguradoras del país para ofrecerle soluciones integrales y personalizadas.</p>
           <p>Nuestro equipo de asesores certificados le acompaña en todo momento, desde la elección del seguro ideal hasta el proceso de reclamación, garantizando siempre la mejor experiencia.</p>
 
@@ -391,25 +387,25 @@
             <div class="value-item"><div class="value-icon"><i class="ti ti-thumb-up"></i></div><div><strong>Confianza</strong><p>Relaciones de largo plazo</p></div></div>
             <div class="value-item"><div class="value-icon"><i class="ti ti-trophy"></i></div><div><strong>Experiencia</strong><p>15+ años en el mercado colombiano</p></div></div>
           </div>
+        </div>
+      </div>
 
-          <div class="aseguradoras">
-            <p class="aseg-label">Trabajamos con:</p>
-            <div class="aseg-marquee">
-              <div class="aseg-track">
-                <img src="assets/aseguradoras/sura.png" alt="Sura" loading="lazy" />
-                <img src="assets/aseguradoras/bolivar.png" alt="Seguros Bolívar" loading="lazy" />
-                <img src="assets/aseguradoras/mapfre.png" alt="Mapfre" loading="lazy" />
-                <img src="assets/aseguradoras/allianz.png" alt="Allianz" loading="lazy" />
-                <img src="assets/aseguradoras/liberty.png" alt="Liberty Seguros" loading="lazy" />
-                <img src="assets/aseguradoras/axa.png" alt="AXA" loading="lazy" />
-                <img src="assets/aseguradoras/sura.png" alt="" aria-hidden="true" loading="lazy" />
-                <img src="assets/aseguradoras/bolivar.png" alt="" aria-hidden="true" loading="lazy" />
-                <img src="assets/aseguradoras/mapfre.png" alt="" aria-hidden="true" loading="lazy" />
-                <img src="assets/aseguradoras/allianz.png" alt="" aria-hidden="true" loading="lazy" />
-                <img src="assets/aseguradoras/liberty.png" alt="" aria-hidden="true" loading="lazy" />
-                <img src="assets/aseguradoras/axa.png" alt="" aria-hidden="true" loading="lazy" />
-              </div>
-            </div>
+      <div class="aseguradoras reveal">
+        <p class="aseg-label">Trabajamos con</p>
+        <div class="aseg-marquee">
+          <div class="aseg-track">
+            <img src="assets/aseguradoras/sura.png" alt="Sura" loading="lazy" />
+            <img src="assets/aseguradoras/bolivar.png" alt="Seguros Bolívar" loading="lazy" />
+            <img src="assets/aseguradoras/mapfre.png" alt="Mapfre" loading="lazy" />
+            <img src="assets/aseguradoras/allianz.png" alt="Allianz" loading="lazy" />
+            <img src="assets/aseguradoras/liberty.png" alt="Liberty Seguros" loading="lazy" />
+            <img src="assets/aseguradoras/axa.png" alt="AXA" loading="lazy" />
+            <img src="assets/aseguradoras/sura.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="assets/aseguradoras/bolivar.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="assets/aseguradoras/mapfre.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="assets/aseguradoras/allianz.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="assets/aseguradoras/liberty.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="assets/aseguradoras/axa.png" alt="" aria-hidden="true" loading="lazy" />
           </div>
         </div>
       </div>
@@ -417,7 +413,7 @@
   </section>
 
   <!-- ====== POR QUÉ CONFIAR ====== -->
-  <section class="section trust-band">
+  <section class="section section-alt">
     <div class="section-container">
       <div class="trust-grid">
         <div class="trust-card reveal"><i class="ti ti-users-group"></i><h4>Asesoría personalizada</h4><p>Un asesor humano lo acompaña, no un formulario impersonal.</p></div>
@@ -429,11 +425,11 @@
   </section>
 
   <!-- ====== CONTACTO ====== -->
-  <section id="contacto" class="section">
+  <section id="contacto" class="section section-white">
     <div class="section-container">
       <div class="section-header reveal">
-        <span class="eyebrow">Contáctenos</span>
-        <h2 class="section-title">Estamos para <span class="accent">servirle</span></h2>
+        <span class="accent-rule" aria-hidden="true"></span>
+        <h2 class="section-title">Estamos para servirle</h2>
         <p class="section-subtitle">¿Tiene preguntas? Nuestros asesores están listos para atenderle de manera personalizada.</p>
       </div>
       <div class="contacto-layout">
@@ -529,8 +525,11 @@
       <div class="footer-main">
         <div>
           <a href="#inicio" class="footer-logo">
-            <svg class="brand-mark" viewBox="0 0 64 64"><use href="#globe-mark"/></svg>
-            <span class="brand-text"><span class="brand-word">GlobalSeguros</span><span class="brand-tag">Protegemos tu mundo</span></span>
+            <img src="assets/logo.png" alt="Global Seguros" class="brand-logo brand-logo-footer" onerror="this.classList.add('is-missing')" />
+            <span class="brand-fallback">
+              <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#globe-mark"/></svg>
+              <span class="brand-text"><span class="brand-word"><b>Global</b>Seguros</span><span class="brand-tag">Protegemos tu mundo</span></span>
+            </span>
           </a>
           <p class="footer-desc">Agencia de seguros colombiana comprometida con su tranquilidad y la de su familia. Certificados y avalados por Fasecolda.</p>
           <div class="footer-certifications">
@@ -540,10 +539,10 @@
         <div class="footer-links-group">
           <h4>Seguros</h4>
           <ul>
-            <li><a href="#servicios" data-tab-link="generales">Seguros y Servicios</a></li>
-            <li><a href="#servicios" data-tab-link="financieros">Cumplimiento y Finanzas</a></li>
-            <li><a href="#servicios" data-tab-link="personas">Personas y Familia</a></li>
-            <li><a href="#servicios" data-tab-link="empresariales">Seguros Empresariales</a></li>
+            <li><a href="#cat-vehiculo">Su vehículo</a></li>
+            <li><a href="#cat-familia">Usted y su familia</a></li>
+            <li><a href="#cat-bienes">Sus bienes</a></li>
+            <li><a href="#cat-empresa">Su empresa</a></li>
           </ul>
         </div>
         <div class="footer-links-group">
@@ -571,17 +570,17 @@
     </div>
   </footer>
 
-  <!-- FLOATING BUTTONS -->
-  <a href="https://wa.me/573112959002?text=Hola%2C%20quiero%20cotizar%20un%20seguro%20con%20Global%20Seguros%20y%20C%C3%ADa" class="whatsapp-float" id="whatsappFloat" aria-label="Escríbenos por WhatsApp" target="_blank" rel="noopener noreferrer">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.486 2 2.011 6.475 2.011 12c0 1.792.469 3.541 1.361 5.083L2 22l5.062-1.329A9.958 9.958 0 0012.004 22C17.522 22 22 17.525 22 12S17.522 2 12.004 2zm0 18.111a8.083 8.083 0 01-4.13-1.129l-.296-.176-3.006.789.803-2.93-.192-.301a8.09 8.09 0 01-1.24-4.364c0-4.47 3.638-8.109 8.06-8.109 4.421 0 8.06 3.639 8.06 8.109 0 4.471-3.639 8.111-8.06 8.111z"/></svg>
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/573112959002?text=Hola%2C%20quiero%20cotizar%20un%20seguro%20con%20Global%20Seguros%20y%20C%C3%ADa" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Escríbanos por WhatsApp">
+    <i class="ti ti-brand-whatsapp"></i>
   </a>
 
-  <button class="back-to-top" id="backToTop" aria-label="Volver al inicio" hidden>
-    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15V5M10 5L5 10M10 5l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
   </button>
 
   <div class="toast-wrap" id="toastWrap" role="status" aria-live="polite"></div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
