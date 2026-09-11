@@ -6,24 +6,18 @@ const WHATSAPP_NUMBER = '573112959002';
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initMegaMenu();
   initRevealOnScroll();
-  initAccordion();
   initCotizador();
   initContactForm();
   initBackToTop();
-  initFooterAccordionLinks();
 });
 
 /* ================= NAVBAR ================= */
 function initNavbar() {
-  const nav = document.getElementById('navbar');
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
-  const navLinkEls = document.querySelectorAll('.nav-link');
-
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  const navLinkEls = document.querySelectorAll('.nav-link[href], .nav-cta');
 
   const closeMenu = () => {
     links.classList.remove('open');
@@ -101,36 +95,45 @@ function initRevealOnScroll() {
   sweep();
 }
 
-/* ================= SERVICIOS ACCORDION ================= */
-/* One category open at a time. Height animates via the CSS grid-rows trick
-   (see .accordion-panel) — no JS height math, no keyframes, fully interruptible. */
-function initAccordion() {
-  const accordion = document.getElementById('servicesAccordion');
-  if (!accordion) return;
-  const items = Array.from(accordion.querySelectorAll('.accordion-item'));
+/* ================= MEGA-MENÚ ================= */
+function initMegaMenu() {
+  const trigger = document.getElementById('megaTrigger');
+  const panel = document.getElementById('megaPanel');
+  if (!trigger || !panel) return;
 
-  window.openAccordionCategory = (cat) => {
-    items.forEach((item) => {
-      const open = item.dataset.cat === cat;
-      item.classList.toggle('open', open);
-      item.querySelector('.accordion-header').setAttribute('aria-expanded', String(open));
-    });
+  const wrap = trigger.closest('.has-mega');
+  const isDesktop = () => window.matchMedia('(min-width: 901px)').matches;
+  let closeTimer = null;
+
+  const setOpen = (open) => {
+    clearTimeout(closeTimer);
+    panel.hidden = !open;
+    trigger.setAttribute('aria-expanded', String(open));
+  };
+  // Closing is deferred so the pointer can cross the gap between the trigger and
+  // the panel below the navbar without the menu collapsing out from under it.
+  const scheduleClose = () => {
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => setOpen(false), 180);
   };
 
-  items.forEach((item) => {
-    const header = item.querySelector('.accordion-header');
-    header.addEventListener('click', () => {
-      const willOpen = !item.classList.contains('open');
-      window.openAccordionCategory(willOpen ? item.dataset.cat : null);
-    });
+  trigger.addEventListener('click', (e) => {
+    // detail === 0 means keyboard activation, where a real toggle is expected.
+    // A mouse click always follows hover, which has already opened the panel.
+    if (isDesktop() && e.detail !== 0) { setOpen(true); return; }
+    setOpen(panel.hidden);
   });
-}
 
-function initFooterAccordionLinks() {
-  document.querySelectorAll('[data-tab-link]').forEach((a) => {
-    a.addEventListener('click', () => {
-      if (window.openAccordionCategory) window.openAccordionCategory(a.dataset.tabLink);
-    });
+  // On desktop the panel also opens on hover, the way allianz.co does it.
+  wrap.addEventListener('mouseenter', () => { if (isDesktop()) setOpen(true); });
+  wrap.addEventListener('mouseleave', () => { if (isDesktop()) scheduleClose(); });
+  panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+
+  panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) { setOpen(false); trigger.focus(); } });
+  document.addEventListener('click', (e) => {
+    if (!panel.hidden && isDesktop() && !wrap.contains(e.target)) setOpen(false);
   });
 }
 
@@ -138,23 +141,44 @@ function initFooterAccordionLinks() {
 /* Each product's first field is its primary rating factor and is required —
    a quote request the advisor can't actually price isn't a quote request. */
 const PRODUCT_CATALOG = {
-  generales: {
-    label: 'Seguros y Servicios',
-    icon: 'ti-shield',
+  vehiculo: {
+    label: 'Su vehículo',
+    icon: 'ti-car',
     products: [
-      { id: 'autos', name: 'Autos', icon: 'ti-car', cluster: 'Vehículos', fields: [
+      { id: 'autos', name: 'Autos', icon: 'ti-car', fields: [
         { id: 'placa', label: 'Placa del vehículo', placeholder: 'ABC123', required: true },
         { id: 'modelo', label: 'Modelo / Año', placeholder: '2020' },
       ] },
-      { id: 'motos', name: 'Motos', icon: 'ti-motorbike', cluster: 'Vehículos', fields: [
+      { id: 'motos', name: 'Motos', icon: 'ti-motorbike', fields: [
         { id: 'placa', label: 'Placa de la moto', placeholder: 'ABC12D', required: true },
         { id: 'cilindraje', label: 'Cilindraje', placeholder: '150cc' },
       ] },
-      { id: 'bicicleta', name: 'Bicicleta', icon: 'ti-bike', cluster: 'Vehículos', fields: [
+      { id: 'bicicleta', name: 'Bicicleta', icon: 'ti-bike', fields: [
         { id: 'valor', label: 'Valor estimado (COP)', placeholder: '2.000.000', currency: true, required: true },
       ] },
-      { id: 'hogar', name: 'Hogar', icon: 'ti-home', fields: [
-        { id: 'tipoVivienda', label: 'Tipo de vivienda', select: ['Casa', 'Apartamento'], required: true },
+    ],
+  },
+  familia: {
+    label: 'Usted y su familia',
+    icon: 'ti-heart',
+    products: [
+      { id: 'salud', name: 'Salud', icon: 'ti-stethoscope', fields: [
+        { id: 'edad', label: 'Edad', placeholder: '35', required: true },
+      ] },
+      { id: 'vida', name: 'Vida', icon: 'ti-shield-heart', fields: [
+        { id: 'edad', label: 'Edad', placeholder: '35', required: true },
+        { id: 'capital', label: 'Capital deseado (COP)', placeholder: '100.000.000', currency: true },
+      ] },
+      { id: 'exequial', name: 'Exequial', icon: 'ti-flower', fields: [
+        { id: 'numPersonas', label: 'Personas a asegurar', placeholder: '4', required: true },
+      ] },
+      { id: 'viaje', name: 'Viaje', icon: 'ti-plane', fields: [
+        { id: 'destino', label: 'Destino', placeholder: 'España', required: true },
+        { id: 'fechas', label: 'Fechas del viaje', placeholder: '10 - 20 de octubre' },
+      ] },
+      { id: 'educativo', name: 'Educativo', icon: 'ti-school', fields: [
+        { id: 'beneficiario', label: 'Nombre del beneficiario', placeholder: 'Nombre del hijo/a' },
+        { id: 'edadBeneficiario', label: 'Edad del beneficiario', placeholder: '8 años', required: true },
       ] },
       { id: 'mascotas', name: 'Mascotas', icon: 'ti-paw', fields: [
         { id: 'mascota', label: 'Tipo de mascota', placeholder: 'Perro, gato...', required: true },
@@ -162,66 +186,45 @@ const PRODUCT_CATALOG = {
       ] },
     ],
   },
-  financieros: {
-    label: 'Cumplimiento y Finanzas',
-    icon: 'ti-clipboard-check',
+  bienes: {
+    label: 'Sus bienes',
+    icon: 'ti-home',
     products: [
-      { id: 'cumplimiento', name: 'Cumplimiento', icon: 'ti-clipboard-check', fields: [
-        { id: 'tipoContrato', label: 'Tipo de contrato', placeholder: 'Obra pública, suministro...' },
-        { id: 'valorContrato', label: 'Valor del contrato (COP)', placeholder: '50.000.000', currency: true, required: true },
+      { id: 'hogar', name: 'Hogar', icon: 'ti-home', fields: [
+        { id: 'tipoVivienda', label: 'Tipo de vivienda', select: ['Casa', 'Apartamento'], required: true },
       ] },
       { id: 'arrendamiento', name: 'Arrendamiento', icon: 'ti-key', fields: [
         { id: 'canon', label: 'Canon mensual (COP)', placeholder: '1.500.000', currency: true, required: true },
         { id: 'ciudadInmueble', label: 'Ciudad del inmueble', placeholder: 'Bogotá D.C.' },
       ] },
-      { id: 'educativo', name: 'Educativo', icon: 'ti-school', fields: [
-        { id: 'beneficiario', label: 'Nombre del beneficiario', placeholder: 'Nombre del hijo/a' },
-        { id: 'edadBeneficiario', label: 'Edad del beneficiario', placeholder: '8 años', required: true },
+      { id: 'copropiedad', name: 'Copropiedad', icon: 'ti-building-community', fields: [
+        { id: 'unidades', label: 'Número de unidades', placeholder: '40', required: true },
+        { id: 'ciudadCopropiedad', label: 'Ciudad', placeholder: 'Bogotá D.C.' },
       ] },
     ],
   },
-  personas: {
-    label: 'Personas y Familia',
-    icon: 'ti-heart',
-    products: [
-      { id: 'salud', name: 'Salud', icon: 'ti-stethoscope', fields: [
-        { id: 'edad', label: 'Edad', placeholder: '35', required: true },
-      ] },
-      { id: 'vida', name: 'Vida', icon: 'ti-shield-heart', cluster: 'Vida y decesos', fields: [
-        { id: 'edad', label: 'Edad', placeholder: '35', required: true },
-        { id: 'capital', label: 'Capital deseado (COP)', placeholder: '100.000.000', currency: true },
-      ] },
-      { id: 'exequial', name: 'Exequial', icon: 'ti-flower', cluster: 'Vida y decesos', fields: [
-        { id: 'numPersonas', label: 'Personas a asegurar', placeholder: '4', required: true },
-      ] },
-      { id: 'viaje', name: 'Viaje', icon: 'ti-plane', fields: [
-        { id: 'destino', label: 'Destino', placeholder: 'España', required: true },
-        { id: 'fechas', label: 'Fechas del viaje', placeholder: '10 - 20 de octubre' },
-      ] },
-      { id: 'rc-medicos', name: 'RC Médicos & Profesionales', icon: 'ti-scale', fields: [
-        { id: 'profesion', label: 'Profesión', placeholder: 'Médico, abogado...', required: true },
-        { id: 'experiencia', label: 'Años de experiencia', placeholder: '5' },
-      ] },
-    ],
-  },
-  empresariales: {
-    label: 'Seguros Empresariales',
+  empresa: {
+    label: 'Su empresa',
     icon: 'ti-briefcase',
     products: [
       { id: 'pymes', name: 'Pymes', icon: 'ti-building-store', fields: [
         { id: 'sector', label: 'Sector de la empresa', placeholder: 'Comercio, servicios...', required: true },
         { id: 'empleados', label: 'Número de empleados', placeholder: '10' },
       ] },
-      { id: 'copropiedad', name: 'Copropiedad', icon: 'ti-building-community', fields: [
-        { id: 'unidades', label: 'Número de unidades', placeholder: '40', required: true },
-        { id: 'ciudadCopropiedad', label: 'Ciudad', placeholder: 'Bogotá D.C.' },
+      { id: 'cumplimiento', name: 'Cumplimiento', icon: 'ti-clipboard-check', fields: [
+        { id: 'tipoContrato', label: 'Tipo de contrato', placeholder: 'Obra pública, suministro...' },
+        { id: 'valorContrato', label: 'Valor del contrato (COP)', placeholder: '50.000.000', currency: true, required: true },
       ] },
-      { id: 'transporte', name: 'Transporte de Mercancías', icon: 'ti-truck', fields: [
+      { id: 'transporte', name: 'Transporte de mercancías', icon: 'ti-truck', fields: [
         { id: 'tipoCarga', label: 'Tipo de carga', placeholder: 'General, refrigerada...', required: true },
         { id: 'valorCarga', label: 'Valor asegurado (COP)', placeholder: '30.000.000', currency: true },
       ] },
-      { id: 'colectivas', name: 'Colectivas y Beneficios Corporativos', icon: 'ti-users', fields: [
+      { id: 'colectivas', name: 'Colectivas y beneficios', icon: 'ti-users', fields: [
         { id: 'empleadosColectivo', label: 'Número de empleados', placeholder: '25', required: true },
+      ] },
+      { id: 'rc-medicos', name: 'RC Médicos y Profesionales', icon: 'ti-scale', fields: [
+        { id: 'profesion', label: 'Profesión', placeholder: 'Médico, abogado...', required: true },
+        { id: 'experiencia', label: 'Años de experiencia', placeholder: '5' },
       ] },
     ],
   },
@@ -255,24 +258,13 @@ function initCotizador() {
   }
 
   function renderProducts() {
-    let html = '';
-    Object.values(PRODUCT_CATALOG).forEach((cat) => {
-      const list = cat.products;
-      const seen = new Set();
-      let inner = '';
-      list.forEach((p) => {
-        if (p.cluster) {
-          if (seen.has(p.cluster)) return; // already emitted as part of its cluster
-          seen.add(p.cluster);
-          const members = list.filter((x) => x.cluster === p.cluster);
-          inner += `<div class="card-cluster"><p class="cluster-heading">${p.cluster}</p><div class="cluster-grid">${members.map(productPickHtml).join('')}</div></div>`;
-        } else {
-          inner += productPickHtml(p);
-        }
-      });
-      html += `<div class="card-cluster product-category"><p class="cluster-heading category-heading"><i class="ti ${cat.icon}"></i> ${cat.label}</p><div class="cluster-grid">${inner}</div></div>`;
-    });
-    productGrid.innerHTML = html;
+    productGrid.innerHTML = Object.values(PRODUCT_CATALOG)
+      .map((cat) => `
+        <div class="product-category">
+          <p class="category-heading"><i class="ti ${cat.icon}"></i> ${cat.label}</p>
+          <div class="category-grid">${cat.products.map(productPickHtml).join('')}</div>
+        </div>`)
+      .join('');
     productGrid.querySelectorAll('.product-pick').forEach((btn) => {
       btn.addEventListener('click', () => {
         productGrid.querySelectorAll('.product-pick').forEach((b) => b.classList.remove('selected'));
