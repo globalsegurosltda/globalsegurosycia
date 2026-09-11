@@ -7,7 +7,6 @@ const WHATSAPP_NUMBER = '573112959002';
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initRevealOnScroll();
-  initStatsCounters();
   initAccordion();
   initCotizador();
   initContactForm();
@@ -102,35 +101,6 @@ function initRevealOnScroll() {
   sweep();
 }
 
-/* ================= STATS COUNTERS ================= */
-function initStatsCounters() {
-  const nums = document.querySelectorAll('.stat-number');
-  const animate = (el) => {
-    const target = parseInt(el.dataset.target, 10) || 0;
-    const duration = 1400;
-    const start = performance.now();
-    const tick = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target).toLocaleString('es-CO');
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  const io = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animate(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  nums.forEach((n) => io.observe(n));
-}
-
 /* ================= SERVICIOS ACCORDION ================= */
 /* One category open at a time. Height animates via the CSS grid-rows trick
    (see .accordion-panel) — no JS height math, no keyframes, fully interruptible. */
@@ -170,6 +140,7 @@ function initFooterAccordionLinks() {
 const PRODUCT_CATALOG = {
   generales: {
     label: 'Seguros y Servicios',
+    icon: 'ti-shield',
     products: [
       { id: 'autos', name: 'Autos', icon: 'ti-car', cluster: 'Vehículos', fields: [
         { id: 'placa', label: 'Placa del vehículo', placeholder: 'ABC123', required: true },
@@ -193,6 +164,7 @@ const PRODUCT_CATALOG = {
   },
   financieros: {
     label: 'Cumplimiento y Finanzas',
+    icon: 'ti-clipboard-check',
     products: [
       { id: 'cumplimiento', name: 'Cumplimiento', icon: 'ti-clipboard-check', fields: [
         { id: 'tipoContrato', label: 'Tipo de contrato', placeholder: 'Obra pública, suministro...' },
@@ -210,6 +182,7 @@ const PRODUCT_CATALOG = {
   },
   personas: {
     label: 'Personas y Familia',
+    icon: 'ti-heart',
     products: [
       { id: 'salud', name: 'Salud', icon: 'ti-stethoscope', fields: [
         { id: 'edad', label: 'Edad', placeholder: '35', required: true },
@@ -233,6 +206,7 @@ const PRODUCT_CATALOG = {
   },
   empresariales: {
     label: 'Seguros Empresariales',
+    icon: 'ti-briefcase',
     products: [
       { id: 'pymes', name: 'Pymes', icon: 'ti-building-store', fields: [
         { id: 'sector', label: 'Sector de la empresa', placeholder: 'Comercio, servicios...', required: true },
@@ -260,12 +234,6 @@ function findProduct(id) {
   }
   return null;
 }
-function findCategoryOf(id) {
-  for (const [key, cat] of Object.entries(PRODUCT_CATALOG)) {
-    if (cat.products.some((pr) => pr.id === id)) return key;
-  }
-  return null;
-}
 
 const PHONE_RE = /^[0-9+()\s-]{7,20}$/;
 
@@ -273,9 +241,8 @@ function initCotizador() {
   const wizard = document.getElementById('wizard');
   if (!wizard) return;
 
-  const state = { category: 'generales', product: null, data: {} };
+  const state = { product: null, data: {} };
 
-  const catPills = document.getElementById('wizardCatPills');
   const productGrid = document.getElementById('wizardProductGrid');
   const toStep2 = document.getElementById('toStep2');
   const toStep3 = document.getElementById('toStep3');
@@ -287,20 +254,23 @@ function initCotizador() {
     return `<button type="button" class="product-pick" data-id="${p.id}"><i class="ti ${p.icon}"></i><span>${p.name}</span></button>`;
   }
 
-  function renderProducts(cat) {
-    const list = PRODUCT_CATALOG[cat].products;
-    const clusters = [];
-    const seen = new Set();
+  function renderProducts() {
     let html = '';
-    list.forEach((p) => {
-      if (p.cluster) {
-        if (seen.has(p.cluster)) return; // already emitted as part of its cluster
-        seen.add(p.cluster);
-        const members = list.filter((x) => x.cluster === p.cluster);
-        html += `<div class="card-cluster"><p class="cluster-heading">${p.cluster}</p><div class="cluster-grid">${members.map(productPickHtml).join('')}</div></div>`;
-      } else {
-        html += productPickHtml(p);
-      }
+    Object.values(PRODUCT_CATALOG).forEach((cat) => {
+      const list = cat.products;
+      const seen = new Set();
+      let inner = '';
+      list.forEach((p) => {
+        if (p.cluster) {
+          if (seen.has(p.cluster)) return; // already emitted as part of its cluster
+          seen.add(p.cluster);
+          const members = list.filter((x) => x.cluster === p.cluster);
+          inner += `<div class="card-cluster"><p class="cluster-heading">${p.cluster}</p><div class="cluster-grid">${members.map(productPickHtml).join('')}</div></div>`;
+        } else {
+          inner += productPickHtml(p);
+        }
+      });
+      html += `<div class="card-cluster product-category"><p class="cluster-heading category-heading"><i class="ti ${cat.icon}"></i> ${cat.label}</p><div class="cluster-grid">${inner}</div></div>`;
     });
     productGrid.innerHTML = html;
     productGrid.querySelectorAll('.product-pick').forEach((btn) => {
@@ -313,17 +283,7 @@ function initCotizador() {
     });
   }
 
-  catPills.querySelectorAll('.cat-pill').forEach((pill) => {
-    pill.addEventListener('click', () => {
-      catPills.querySelectorAll('.cat-pill').forEach((p) => p.classList.remove('active'));
-      pill.classList.add('active');
-      state.category = pill.dataset.cat;
-      state.product = null;
-      toStep2.disabled = true;
-      renderProducts(state.category);
-    });
-  });
-  renderProducts(state.category);
+  renderProducts();
 
   function goToStep(step) {
     wizard.querySelectorAll('.wizard-step').forEach((s) => s.classList.toggle('active', s.dataset.step === String(step)));
@@ -465,16 +425,7 @@ function initCotizador() {
   document.querySelectorAll('.service-cta[data-product]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.product;
-      const cat = findCategoryOf(id);
-      if (!cat) return;
       document.getElementById('cotizador').scrollIntoView({ behavior: 'smooth' });
-      const pill = catPills.querySelector(`[data-cat="${cat}"]`);
-      if (pill) {
-        catPills.querySelectorAll('.cat-pill').forEach((p) => p.classList.remove('active'));
-        pill.classList.add('active');
-        state.category = cat;
-        renderProducts(cat);
-      }
       requestAnimationFrame(() => {
         const productBtn = productGrid.querySelector(`[data-id="${id}"]`);
         if (productBtn) productBtn.click();
