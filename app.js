@@ -7,6 +7,7 @@ const WHATSAPP_NUMBER = '573112959002';
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMegaMenu();
+  initCategoryAccordion();
   initRevealOnScroll();
   initCotizador();
   initContactForm();
@@ -17,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function initNavbar() {
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
-  const navLinkEls = document.querySelectorAll('.nav-link[href], .nav-cta');
+  // Los enlaces del mega-menú también cierran el cajón móvil: sin ellos el menú
+  // a pantalla completa queda tapando la sección a la que se acaba de navegar.
+  const navLinkEls = document.querySelectorAll('.nav-link[href], .nav-cta, .mega-col a');
 
   const closeMenu = () => {
     links.classList.remove('open');
@@ -93,6 +96,64 @@ function initRevealOnScroll() {
   window.addEventListener('scroll', onScrollOrResize, { passive: true });
   window.addEventListener('resize', onScrollOrResize);
   sweep();
+}
+
+/* ================= CATEGORÍAS PLEGABLES (solo móvil) ================= */
+/* En escritorio las cuatro categorías se ven completas; por debajo de 900px se
+   pliegan para que la sección no sea una lista de 17 tarjetas. */
+function initCategoryAccordion() {
+  const groups = [...document.querySelectorAll('.cat-group')];
+  if (!groups.length) return;
+  const mq = window.matchMedia('(max-width: 900px)');
+
+  const open = (g) => {
+    g.classList.add('open');
+    g.querySelector('.cat-toggle').setAttribute('aria-expanded', 'true');
+    // Las tarjetas plegadas nunca entran en viewport, así que el observador de
+    // scroll no las revela: al abrir se marcan visibles directamente.
+    g.querySelectorAll('.reveal, .reveal-scale').forEach((el) => el.classList.add('in-view'));
+  };
+
+  groups.forEach((g) => {
+    const btn = g.querySelector('.cat-toggle');
+    btn.addEventListener('click', () => {
+      if (g.classList.contains('open')) {
+        g.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        open(g);
+      }
+    });
+  });
+
+  // El control solo existe en móvil: en escritorio no debe recibir foco.
+  const sync = () => {
+    groups.forEach((g) => {
+      const btn = g.querySelector('.cat-toggle');
+      btn.disabled = !mq.matches;
+      if (mq.matches) btn.setAttribute('aria-expanded', String(g.classList.contains('open')));
+      else btn.removeAttribute('aria-expanded');
+    });
+  };
+
+  // Un enlace a #cat-… (mega-menú o footer) debe abrir esa categoría, o el
+  // usuario aterriza en un encabezado plegado. Se atiende el clic además del
+  // hashchange, que no dispara si ya se estaba en ese mismo hash.
+  const openFromHash = () => {
+    const g = document.getElementById(location.hash.slice(1));
+    if (g && g.classList.contains('cat-group') && mq.matches) open(g);
+  };
+  document.querySelectorAll('a[href^="#cat-"]').forEach((a) => {
+    a.addEventListener('click', () => {
+      const g = document.getElementById(a.getAttribute('href').slice(1));
+      if (g && mq.matches) open(g);
+    });
+  });
+
+  sync();
+  openFromHash();
+  mq.addEventListener('change', sync);
+  window.addEventListener('hashchange', openFromHash);
 }
 
 /* ================= MEGA-MENÚ ================= */

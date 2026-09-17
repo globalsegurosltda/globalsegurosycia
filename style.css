@@ -268,8 +268,12 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 /* ---------- SERVICIOS ---------- */
 .cat-group { margin-bottom: clamp(3rem, 6vw, 4.5rem); scroll-margin-top: calc(var(--nav-height) + 28px); }
 .cat-group:last-child { margin-bottom: 0; }
-.cat-head { display: flex; align-items: baseline; gap: 1rem; padding-bottom: 1rem; margin-bottom: 1.8rem; border-bottom: 1px solid var(--line); }
+.cat-head { padding-bottom: 1rem; margin-bottom: 1.8rem; border-bottom: 1px solid var(--line); }
+.cat-toggle { display: flex; align-items: center; gap: 0.9rem; width: 100%; text-align: left; }
 .cat-title { font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 700; }
+/* En escritorio las categorías están siempre abiertas: el control no existe. */
+.cat-count, .cat-chevron { display: none; }
+.cat-toggle:disabled { cursor: default; }
 
 .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem; }
 .service-card {
@@ -525,6 +529,22 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
   .mega-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.2rem 0 1.5rem; }
   .mega-heading { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-500); margin-bottom: 0.7rem; }
   .mega-col ul { gap: 0.55rem; }
+
+  /* Las 17 tarjetas apiladas hacen una lista larguísima en móvil: cada categoría
+     se pliega y queda una fila por categoría. La altura se anima con el truco de
+     grid-template-rows 0fr/1fr, sin medir alturas en JS. */
+  .cat-group { margin-bottom: 0; }
+  .cat-head { margin-bottom: 0; padding: 0; border-bottom: none; }
+  .cat-toggle { min-height: 60px; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .cat-count { display: inline; font-size: 0.82rem; color: var(--ink-500); white-space: nowrap; }
+  .cat-chevron { display: block; width: 20px; height: 20px; margin-left: auto; color: var(--ink-500); flex-shrink: 0; transition: transform .3s var(--ease-out); }
+  .cat-group.open .cat-chevron { transform: rotate(180deg); color: var(--navy-600); }
+  .cat-title { font-size: 1.05rem; }
+
+  .cat-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--ease-out); }
+  .cat-group.open .cat-panel { grid-template-rows: 1fr; }
+  .cat-panel-inner { overflow: hidden; }
+  .cat-group.open .services-grid { padding: 1.25rem 0 1.75rem; }
 }
 
 @media (max-width: 640px) {
