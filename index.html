@@ -48,7 +48,7 @@
     <div class="topbar-inner">
       <span class="topbar-tagline">Agencia de seguros · Bogotá D.C.</span>
       <div class="topbar-links">
-        <a href="tel:+5716001234"><i class="ti ti-phone"></i> (601) 600-1234</a>
+        <a href="tel:+573112959002"><i class="ti ti-phone"></i> +57 311 295 9002</a>
         <a href="https://wa.me/573112959002?text=Hola%2C%20quiero%20cotizar%20un%20seguro%20con%20Global%20Seguros%20y%20C%C3%ADa" target="_blank" rel="noopener noreferrer"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
@@ -155,8 +155,16 @@
       </div>
 
       <div class="cat-group" id="cat-vehiculo">
-        <div class="cat-head"><h3 class="cat-title">Su vehículo</h3></div>
-        <div class="services-grid">
+        <h3 class="cat-head">
+          <button class="cat-toggle" aria-expanded="false" aria-controls="panel-vehiculo">
+            <span class="cat-title">Su vehículo</span>
+            <span class="cat-count">3 seguros</span>
+            <svg class="cat-chevron" viewBox="0 0 20 20" aria-hidden="true"><use href="#chevron-down"/></svg>
+          </button>
+        </h3>
+        <div class="cat-panel" id="panel-vehiculo">
+          <div class="cat-panel-inner">
+            <div class="services-grid">
           <article class="service-card reveal">
             <div class="service-icon"><i class="ti ti-car"></i></div>
             <h4 class="service-name">Autos</h4>
@@ -175,12 +183,22 @@
             <p class="service-text">Aseguramiento de su bicicleta contra robo, daños y accidentes.</p>
             <button class="service-cta" data-product="bicicleta">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
           </article>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="cat-group" id="cat-familia">
-        <div class="cat-head"><h3 class="cat-title">Usted y su familia</h3></div>
-        <div class="services-grid">
+        <h3 class="cat-head">
+          <button class="cat-toggle" aria-expanded="false" aria-controls="panel-familia">
+            <span class="cat-title">Usted y su familia</span>
+            <span class="cat-count">6 seguros</span>
+            <svg class="cat-chevron" viewBox="0 0 20 20" aria-hidden="true"><use href="#chevron-down"/></svg>
+          </button>
+        </h3>
+        <div class="cat-panel" id="panel-familia">
+          <div class="cat-panel-inner">
+            <div class="services-grid">
           <article class="service-card reveal">
             <div class="service-icon"><i class="ti ti-stethoscope"></i></div>
             <h4 class="service-name">Salud</h4>
@@ -217,12 +235,22 @@
             <p class="service-text">Cobertura veterinaria y de responsabilidad civil para su mascota.</p>
             <button class="service-cta" data-product="mascotas">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
           </article>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="cat-group" id="cat-bienes">
-        <div class="cat-head"><h3 class="cat-title">Sus bienes</h3></div>
-        <div class="services-grid">
+        <h3 class="cat-head">
+          <button class="cat-toggle" aria-expanded="false" aria-controls="panel-bienes">
+            <span class="cat-title">Sus bienes</span>
+            <span class="cat-count">3 seguros</span>
+            <svg class="cat-chevron" viewBox="0 0 20 20" aria-hidden="true"><use href="#chevron-down"/></svg>
+          </button>
+        </h3>
+        <div class="cat-panel" id="panel-bienes">
+          <div class="cat-panel-inner">
+            <div class="services-grid">
           <article class="service-card reveal">
             <div class="service-icon"><i class="ti ti-home"></i></div>
             <h4 class="service-name">Hogar</h4>
@@ -241,12 +269,22 @@
             <p class="service-text">Cobertura para las áreas comunes y bienes de su conjunto residencial o edificio.</p>
             <button class="service-cta" data-product="copropiedad">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
           </article>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="cat-group" id="cat-empresa">
-        <div class="cat-head"><h3 class="cat-title">Su empresa</h3></div>
-        <div class="services-grid">
+        <h3 class="cat-head">
+          <button class="cat-toggle" aria-expanded="false" aria-controls="panel-empresa">
+            <span class="cat-title">Su empresa</span>
+            <span class="cat-count">5 seguros</span>
+            <svg class="cat-chevron" viewBox="0 0 20 20" aria-hidden="true"><use href="#chevron-down"/></svg>
+          </button>
+        </h3>
+        <div class="cat-panel" id="panel-empresa">
+          <div class="cat-panel-inner">
+            <div class="services-grid">
           <article class="service-card reveal">
             <div class="service-icon"><i class="ti ti-building-store"></i></div>
             <h4 class="service-name">Pymes</h4>
@@ -277,6 +315,8 @@
             <p class="service-text">Responsabilidad civil por errores u omisiones en el ejercicio profesional.</p>
             <button class="service-cta" data-product="rc-medicos">Cotizar <svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow-right"/></svg></button>
           </article>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -437,7 +477,7 @@
         <div class="reveal">
           <div class="contact-item">
             <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
-            <div><strong>Dirección</strong><p>Calle 100 # 19-61, Of. 302<br />Bogotá D.C., Colombia</p></div>
+            <div><strong>Dirección</strong><p>Carrera 14A # 71A-59<br />Bogotá D.C., Colombia</p></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon"><i class="ti ti-phone"></i></div>
