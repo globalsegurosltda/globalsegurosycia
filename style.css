@@ -433,19 +433,25 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 
 @media (max-width: 900px) {
   .contacto-layout { grid-template-columns: 1fr; }
-  /* La sección es alta y angosta en móvil: de fondo, `cover` amplía tanto la foto
-     que solo se ve un trozo del centro. Pasa a ser un bloque propio bajo el texto,
-     en su proporción real, así que se ve completa y sin velo encima. */
-  .nosotros { display: flex; flex-direction: column; }
+  /* Sigue de fondo como en escritorio, pero con `contain`: la sección es alta y
+     angosta, y `cover` ampliaba la foto hasta dejar visible solo un trozo del
+     centro. Anclada abajo, donde el velo es más claro y se alcanza a leer. */
   .nosotros-layout { max-width: none; }
-  .nosotros .section-container { order: 1; }
+  /* A `contain` la foto mide ancho x 0.561; se reserva abajo casi esa altura para
+     que el globo quede en franja libre y no debajo de la última tarjeta. */
+  .nosotros { padding-bottom: 46vw; }
   .nosotros-photo {
-    position: static; order: 2; z-index: auto;
-    width: auto; margin: 2.2rem clamp(1.25rem, 4vw, 2.5rem) 0;
-    aspect-ratio: 1100 / 617;
-    border-radius: var(--radius-lg);
+    left: 0; width: 100%;
+    background-size: contain;
+    background-position: center bottom;
   }
-  .nosotros-photo::after { display: none; }
+  .nosotros-photo::after {
+    background: linear-gradient(180deg,
+      var(--navy-900) 0%,
+      rgba(14,31,54,0.94) 38%,
+      rgba(16,36,60,0.74) 64%,
+      rgba(20,44,74,0.40) 100%);
+  }
   .topbar-tagline { display: none; }
   .topbar-inner { justify-content: center; }
 
