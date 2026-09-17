@@ -433,13 +433,19 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 
 @media (max-width: 900px) {
   .contacto-layout { grid-template-columns: 1fr; }
-  /* A ancho de móvil el texto ocupa todo, así que la foto pasa a fondo completo
-     bajo un velo vertical, como en el hero. */
+  /* La sección es alta y angosta en móvil: de fondo, `cover` amplía tanto la foto
+     que solo se ve un trozo del centro. Pasa a ser un bloque propio bajo el texto,
+     en su proporción real, así que se ve completa y sin velo encima. */
+  .nosotros { display: flex; flex-direction: column; }
   .nosotros-layout { max-width: none; }
-  .nosotros-photo { width: 100%; }
-  .nosotros-photo::after {
-    background: linear-gradient(180deg, rgba(14,31,54,0.92) 0%, rgba(16,36,60,0.88) 55%, rgba(20,44,74,0.82) 100%);
+  .nosotros .section-container { order: 1; }
+  .nosotros-photo {
+    position: static; order: 2; z-index: auto;
+    width: auto; margin: 2.2rem clamp(1.25rem, 4vw, 2.5rem) 0;
+    aspect-ratio: 1100 / 617;
+    border-radius: var(--radius-lg);
   }
+  .nosotros-photo::after { display: none; }
   .topbar-tagline { display: none; }
   .topbar-inner { justify-content: center; }
 
