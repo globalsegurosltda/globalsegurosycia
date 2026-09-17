@@ -437,21 +437,21 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
      angosta, y `cover` ampliaba la foto hasta dejar visible solo un trozo del
      centro. Anclada abajo, donde el velo es más claro y se alcanza a leer. */
   .nosotros-layout { max-width: none; }
-  /* A `contain` la foto mide ancho x 0.561; se reserva abajo casi esa altura para
-     que el globo quede en franja libre y no debajo de la última tarjeta. */
-  .nosotros { padding-bottom: 46vw; }
+  /* La capa se recorta a la proporción exacta de la foto (ancho x 617/1100) y se
+     ancla abajo, así `cover` no recorta nada. Su borde superior se desvanece con
+     una máscara: a `contain` sobre toda la sección quedaba una línea recta de lado
+     a lado y la foto parecía un recuadro pegado encima del azul. */
+  /* Se reserva la altura completa de la foto: así ningún texto queda encima y el
+     contraste no depende del velo. */
+  .nosotros { padding-bottom: 57vw; }
   .nosotros-photo {
-    left: 0; width: 100%;
-    background-size: contain;
-    background-position: center bottom;
+    top: auto; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 56.1vw;
+    background-position: center;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 32%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 32%);
   }
-  .nosotros-photo::after {
-    background: linear-gradient(180deg,
-      var(--navy-900) 0%,
-      rgba(14,31,54,0.94) 38%,
-      rgba(16,36,60,0.74) 64%,
-      rgba(20,44,74,0.40) 100%);
-  }
+  .nosotros-photo::after { background: rgba(18,36,61,0.24); }
   .topbar-tagline { display: none; }
   .topbar-inner { justify-content: center; }
 
