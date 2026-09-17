@@ -292,7 +292,8 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .service-cta { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; font-size: 0.9rem; color: var(--navy-600); align-self: flex-start; transition: color .2s; }
 .service-cta .icon-arrow { transition: transform .25s var(--ease-out); }
 .service-card:hover .service-cta { color: var(--navy-800); }
-.service-card:hover .service-cta .icon-arrow { transform: translateX(3px); }
+/* La flecha es diagonal porque el enlace abre la plataforma de cotización aparte */
+.service-card:hover .service-cta .icon-arrow { transform: translate(2px, -2px); }
 
 /* ---------- COTIZADOR (wizard, sobre superficie clara) ---------- */
 .wizard-shell {

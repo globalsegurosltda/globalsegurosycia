@@ -474,17 +474,6 @@ function initCotizador() {
     goToStep(1);
   });
 
-  // "Cotizar" buttons on the services grid jump straight into the wizard
-  document.querySelectorAll('.service-cta[data-product]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.product;
-      document.getElementById('cotizador').scrollIntoView({ behavior: 'smooth' });
-      requestAnimationFrame(() => {
-        const productBtn = productGrid.querySelector(`[data-id="${id}"]`);
-        if (productBtn) productBtn.click();
-      });
-    });
-  });
 }
 
 /* ================= CURRENCY INPUTS ================= */
