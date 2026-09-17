@@ -88,7 +88,6 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 /* ---------- LAYOUT ---------- */
 .section { padding: clamp(4rem, 8vw, 6.5rem) 0; }
 .section-white { background: var(--white); }
-.section-alt { background: var(--surface-alt); }
 .section-container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
 
 .section-header { max-width: 620px; margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
@@ -290,9 +289,29 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .service-card:hover .service-cta .icon-arrow { transform: translate(2px, -2px); }
 
 /* ---------- NOSOTROS ---------- */
-.nosotros-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-.nosotros-layout > * { min-width: 0; }
-.nosotros-media img { width: 100%; height: auto; border-radius: var(--radius-lg); }
+/* La foto ocupa solo la mitad derecha y se funde con el navy por su borde
+   izquierdo, igual que el velo del hero pero sin cubrir todo el ancho. */
+.nosotros { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
+.nosotros-photo {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 56%; z-index: -1;
+  background: url('assets/nosotros.jpg') center / cover no-repeat;
+}
+.nosotros-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    var(--navy-900) 0%,
+    rgba(18,36,61,0.82) 26%,
+    rgba(18,36,61,0.42) 62%,
+    rgba(18,36,61,0.28) 100%);
+}
+.nosotros-layout { max-width: 560px; }
+.nosotros .section-title { color: var(--white); }
+.nosotros .nosotros-info p { color: rgba(255,255,255,0.76); }
+.nosotros .nosotros-info strong { color: var(--white); }
+.nosotros .value-item { border-color: rgba(255,255,255,0.16); background: rgba(255,255,255,0.05); }
+.nosotros .value-icon { background: rgba(255,255,255,0.09); color: var(--steel-300); }
+.nosotros .value-item strong { color: var(--white); }
+.nosotros .value-item p { color: rgba(255,255,255,0.62); }
 .nosotros-info p { margin-bottom: 1.1rem; color: var(--ink-500); }
 .nosotros-info strong { color: var(--ink-900); }
 
@@ -302,7 +321,8 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .value-item strong { display: block; color: var(--ink-900); font-size: 0.95rem; }
 .value-item p { font-size: 0.84rem; color: var(--ink-500); }
 
-.aseguradoras { margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); }
+/* Sección propia: el espaciado ya lo pone .section, no hace falta separarla más */
+.aseguradoras-section { padding: clamp(2.5rem, 5vw, 3.5rem) 0; }
 .aseg-label { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-500); margin-bottom: 1.6rem; }
 .aseg-marquee { width: 100%; max-width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); }
 .aseg-track { display: flex; align-items: center; gap: clamp(2.5rem, 6vw, 4rem); width: max-content; animation: marquee 30s linear infinite; }
@@ -312,6 +332,8 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ---------- POR QUÉ CONFIAR ---------- */
+/* Fondo navy para que las tarjetas blancas resalten */
+.trust-band { background: var(--grad-deep); }
 .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
 .trust-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 1.7rem 1.5rem; }
 .trust-card i { font-size: 1.6rem; color: var(--navy-500); display: block; margin-bottom: 0.9rem; }
@@ -410,7 +432,14 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 }
 
 @media (max-width: 900px) {
-  .contacto-layout, .nosotros-layout { grid-template-columns: 1fr; }
+  .contacto-layout { grid-template-columns: 1fr; }
+  /* A ancho de móvil el texto ocupa todo, así que la foto pasa a fondo completo
+     bajo un velo vertical, como en el hero. */
+  .nosotros-layout { max-width: none; }
+  .nosotros-photo { width: 100%; }
+  .nosotros-photo::after {
+    background: linear-gradient(180deg, rgba(14,31,54,0.92) 0%, rgba(16,36,60,0.88) 55%, rgba(20,44,74,0.82) 100%);
+  }
   .topbar-tagline { display: none; }
   .topbar-inner { justify-content: center; }
 
