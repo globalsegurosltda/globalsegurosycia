@@ -165,7 +165,7 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .brand-logo { height: 54px; width: auto; object-fit: contain; }
 /* En el footer el logo va plano: silueta blanca sobre el navy. El original es
    navy metálico y ahí el detalle no aporta, solo ensucia. */
-.brand-logo-footer { height: var(--footer-logo-h); opacity: 0.9; }
+.brand-logo-footer { height: var(--footer-logo-h); }
 .brand-logo.is-missing { display: none; }
 .brand-fallback { display: none; align-items: center; gap: 0.65rem; }
 .brand-logo.is-missing + .brand-fallback { display: flex; }
@@ -380,7 +380,7 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .footer { background: var(--grad-deep); color: rgba(255,255,255,0.62); padding-top: clamp(3rem, 6vw, 4.5rem); }
 .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
 .footer-main {
-  --footer-logo-h: 38px;
+  --footer-logo-h: 46px;
   display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem;
   padding-bottom: 2.6rem; border-bottom: 1px solid rgba(255,255,255,0.1);
   align-items: start;
