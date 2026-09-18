@@ -163,7 +163,9 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 /* Logo: la imagen real manda; el isotipo SVG solo aparece si el archivo falta */
 .brand, .footer-logo { display: flex; align-items: center; }
 .brand-logo { height: 54px; width: auto; object-fit: contain; }
-.brand-logo-footer { height: 46px; }
+/* En el footer el logo va plano: silueta blanca sobre el navy. El original es
+   navy metálico y ahí el detalle no aporta, solo ensucia. */
+.brand-logo-footer { height: var(--footer-logo-h); opacity: 0.9; }
 .brand-logo.is-missing { display: none; }
 .brand-fallback { display: none; align-items: center; gap: 0.65rem; }
 .brand-logo.is-missing + .brand-fallback { display: flex; }
@@ -377,8 +379,16 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 /* ---------- FOOTER ---------- */
 .footer { background: var(--grad-deep); color: rgba(255,255,255,0.62); padding-top: clamp(3rem, 6vw, 4.5rem); }
 .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
-.footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.footer-logo { margin-bottom: 1.1rem; }
+.footer-main {
+  --footer-logo-h: 38px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem;
+  padding-bottom: 2.6rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+  align-items: start;
+}
+/* El logo es más alto que un encabezado, así que alinear por arriba deja los
+   títulos flotando. Se bajan media diferencia para centrarlos contra el logo. */
+.footer-links-group { padding-top: calc((var(--footer-logo-h) - 1.14rem) / 2); }
+.footer-logo { margin-bottom: 1.2rem; }
 .footer-desc { font-size: 0.9rem; max-width: 34ch; margin-bottom: 1.2rem; }
 .footer-certifications { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .cert-badge { font-size: 0.74rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.8); }
@@ -387,8 +397,11 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .footer-links-group a, .footer-links-group address p { font-size: 0.9rem; transition: color .2s; }
 .footer-links-group a:hover { color: var(--white); }
 .footer-links-group address { font-style: normal; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-links-group address i { color: var(--steel-400); margin-right: 0.35rem; }
-.footer-bottom { padding: 1.6rem 0; text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+/* El icono va en su propia columna: con el icono en línea, la segunda línea de
+   la dirección volvía al margen y la lista quedaba dentada. */
+.footer-links-group address p { display: flex; gap: 0.5rem; line-height: 1.5; }
+.footer-links-group address i { color: var(--steel-400); flex: 0 0 1em; margin-top: 0.15em; }
+.footer-bottom { padding: 1.6rem 0; font-size: 0.82rem; color: rgba(255,255,255,0.45); }
 
 /* ---------- FLOATING ---------- */
 .whatsapp-float {
@@ -488,7 +501,14 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 }
 
 @media (max-width: 640px) {
-  .values-grid, .trust-grid, .footer-main, .form-row { grid-template-columns: 1fr; }
+  .values-grid, .trust-grid, .form-row { grid-template-columns: 1fr; }
+  /* Apilar los cuatro bloques hacía un footer larguísimo. El logo y los datos
+     de contacto ocupan el ancho; las dos listas cortas van a la par. */
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+  .footer-main > :first-child,
+  .footer-links-group:last-child { grid-column: 1 / -1; }
+  /* Ningún título queda al lado del logo: sin desfase óptico. */
+  .footer-links-group { padding-top: 0; }
   .hero-actions .btn { width: 100%; }
   /* A ancho de móvil el texto ocupa todo, así que el velo deja de ser lateral */
   .hero-photo {
