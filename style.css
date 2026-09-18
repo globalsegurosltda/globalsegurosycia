@@ -162,8 +162,8 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 
 /* Logo: la imagen real manda; el isotipo SVG solo aparece si el archivo falta */
 .brand, .footer-logo { display: flex; align-items: center; }
-.footer-logo { gap: 0.65rem; }
 .brand-logo { height: 54px; width: auto; object-fit: contain; }
+.brand-logo-footer { height: 46px; }
 .brand-logo.is-missing { display: none; }
 .brand-fallback { display: none; align-items: center; gap: 0.65rem; }
 .brand-logo.is-missing + .brand-fallback { display: flex; }
@@ -172,9 +172,6 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .brand-word { font-weight: 700; font-size: 1.2rem; color: var(--navy-900); letter-spacing: -0.02em; }
 .brand-word b { font-weight: 700; color: var(--navy-500); }
 .brand-tag { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-500); }
-.footer-logo .brand-word { color: var(--white); }
-.footer-logo .brand-word b { color: var(--steel-300); }
-.footer-logo .brand-tag { color: rgba(255,255,255,0.55); }
 
 .nav-links { display: flex; align-items: center; gap: 2rem; }
 .nav-link {
