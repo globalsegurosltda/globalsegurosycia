@@ -56,6 +56,9 @@
   --whatsapp-600: #17913f;
   --error-500: #c0392b;
   --focus-ring: 0 0 0 3px rgba(53,89,138,0.45);
+  /* Azul claro para el realce al pasar el cursor: tiene que leerse como azul
+     sin acercarse al navy de los botones, que es el que manda la acción. */
+  --blue-soft: #e3edfa;
 }
 
 /* ---------- RESET ---------- */
@@ -162,9 +165,9 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 
 /* Logo: la imagen real manda; el isotipo SVG solo aparece si el archivo falta */
 .brand, .footer-logo { display: flex; align-items: center; }
-.brand-logo { height: 54px; width: auto; object-fit: contain; }
-/* En el footer el logo va plano: silueta blanca sobre el navy. El original es
-   navy metálico y ahí el detalle no aporta, solo ensucia. */
+.brand-logo { height: 38px; width: auto; object-fit: contain; }
+/* En el footer va el mismo logotipo en negativo: el original es navy metálico y
+   sobre el degradado del footer no se vería. */
 .brand-logo-footer { height: var(--footer-logo-h); }
 .brand-logo.is-missing { display: none; }
 .brand-fallback { display: none; align-items: center; gap: 0.65rem; }
@@ -175,19 +178,23 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .brand-word b { font-weight: 700; color: var(--navy-500); }
 .brand-tag { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-500); }
 
-.nav-links { display: flex; align-items: center; gap: 2rem; }
+/* El hueco se achica porque ahora cada pestaña lleva su propio relleno. */
+.nav-links { display: flex; align-items: center; gap: 0.35rem; }
 .nav-link {
   position: relative; display: inline-flex; align-items: center; gap: 0.3rem;
   font-weight: 500; font-size: 0.97rem; color: var(--ink-900);
-  padding: 0.3rem 0; transition: color .2s;
+  padding: 0.55rem 0.9rem; border-radius: var(--radius-sm);
+  transition: color .2s, background .2s;
 }
+/* La barrita ya no marca el hover (de eso se encarga el fondo): queda solo
+   como señal de la sección en la que está el visitante. */
 .nav-link::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  content: ''; position: absolute; left: 0.9rem; right: 0.9rem; bottom: 0.2rem; height: 2px;
   background: var(--navy-600); transform: scaleX(0); transform-origin: left;
   transition: transform .25s var(--ease-out);
 }
-.nav-link:hover::after, .nav-link.active::after, .nav-link[aria-expanded="true"]::after { transform: scaleX(1); }
-.nav-link:hover { color: var(--navy-700); }
+.nav-link.active::after { transform: scaleX(1); }
+.nav-link:hover, .nav-link[aria-expanded="true"] { background: var(--blue-soft); color: var(--navy-800); }
 .nav-chevron { width: 15px; height: 15px; transition: transform .25s var(--ease-out); }
 .nav-link[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
 
@@ -281,9 +288,15 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 }
 .service-name { font-size: 1.08rem; margin-bottom: 0.5rem; }
 .service-text { font-size: 0.92rem; color: var(--ink-500); margin-bottom: 1.4rem; flex: 1; }
-.service-cta { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; font-size: 0.9rem; color: var(--navy-600); align-self: flex-start; transition: color .2s; }
+.service-cta {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-weight: 600; font-size: 0.9rem; align-self: flex-start;
+  padding: 0.6rem 1.1rem; border-radius: var(--radius-sm);
+  background: var(--navy-600); color: var(--white);
+  transition: background .25s;
+}
 .service-cta .icon-arrow { transition: transform .25s var(--ease-out); }
-.service-card:hover .service-cta { color: var(--navy-800); }
+.service-card:hover .service-cta { background: var(--navy-800); }
 /* La flecha es diagonal porque el enlace abre la plataforma de cotización aparte */
 .service-card:hover .service-cta .icon-arrow { transform: translate(2px, -2px); }
 
@@ -326,7 +339,7 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .aseg-marquee { width: 100%; max-width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); }
 .aseg-track { display: flex; align-items: center; gap: clamp(2.5rem, 6vw, 4rem); width: max-content; animation: marquee 30s linear infinite; }
 .aseg-track:hover { animation-play-state: paused; }
-.aseg-track img { height: 30px; width: auto; filter: grayscale(1) opacity(0.5); transition: filter .3s; }
+.aseg-track img { height: 40px; width: auto; filter: grayscale(1) opacity(0.5); transition: filter .3s; }
 .aseg-track img:hover { filter: grayscale(0) opacity(1); }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -380,7 +393,7 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .footer { background: var(--grad-deep); color: rgba(255,255,255,0.62); padding-top: clamp(3rem, 6vw, 4.5rem); }
 .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
 .footer-main {
-  --footer-logo-h: 46px;
+  --footer-logo-h: 34px;
   display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem;
   padding-bottom: 2.6rem; border-bottom: 1px solid rgba(255,255,255,0.1);
   align-items: start;
@@ -474,7 +487,9 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
     overflow-y: auto; border-top: 1px solid var(--line);
   }
   .nav-links.open { transform: translateX(0); }
-  .nav-link { font-size: 1.05rem; padding: 1rem 0; border-bottom: 1px solid var(--line); width: 100%; justify-content: space-between; }
+  /* En el cajón el realce se sale a los lados para que no quede pegado al
+     texto, pero el texto sigue alineado con el margen del cajón. */
+  .nav-link { font-size: 1.05rem; padding: 1rem 0.75rem; margin: 0 -0.75rem; width: calc(100% + 1.5rem); border-bottom: 1px solid var(--line); border-radius: 0; justify-content: space-between; }
   .nav-link::after { display: none; }
   .nav-cta { margin-top: 1.5rem; text-align: center; justify-content: center; display: flex; }
 
