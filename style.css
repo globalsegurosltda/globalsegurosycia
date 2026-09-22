@@ -240,8 +240,10 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
   background: var(--navy-900);
-  /* Menos aire arriba que abajo: el bloque sube y deja ver más playa. */
-  padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(5rem, 11vw, 8.5rem);
+  /* Reparto asimétrico: el bloque arranca más arriba que antes, pero la sección
+     conserva su alto — recortar solo el relleno de arriba la dejaba 87 px más
+     baja y la foto perdía presencia. */
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(6rem, 13vw, 11rem);
 }
 /* La foto va bajo un velo navy denso a la izquierda (donde cae el texto) y más
    claro a la derecha, para que la familia siga siendo visible. */
