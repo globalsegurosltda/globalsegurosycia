@@ -371,7 +371,10 @@ textarea:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: va
 .aseg-marquee { width: 100%; max-width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); }
 .aseg-track { display: flex; align-items: center; gap: clamp(2.5rem, 6vw, 4rem); width: max-content; animation: marquee 30s linear infinite; }
 .aseg-track:hover { animation-play-state: paused; }
-.aseg-track img { height: 40px; width: auto; filter: grayscale(1) opacity(0.5); transition: filter .3s; }
+/* Caja igual para todos: los sellos van de 4.4:1 (Mundial) a 1.1:1 (Equidad),
+   y con solo fijar el alto los anchos quedaban dispares. `contain` los ajusta
+   dentro del mismo hueco sin deformarlos. */
+.aseg-track img { height: 52px; width: 120px; object-fit: contain; filter: grayscale(1) opacity(0.5); transition: filter .3s; }
 .aseg-track img:hover { filter: grayscale(0) opacity(1); }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
