@@ -14,7 +14,7 @@
   <title>Global Seguros y Cia Ltda | Protegemos tu mundo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="style.css?v=21" />
+  <link rel="stylesheet" href="style.css?v=22" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2312243d'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='13' fill='none' stroke='%237a99c0' stroke-width='2.5'/%3E%3Cellipse cx='32' cy='32' rx='13' ry='30' fill='none' stroke='%237a99c0' stroke-width='2.5'/%3E%3C/svg%3E" />
 </head>
@@ -343,39 +343,44 @@
       <div class="aseguradoras reveal">
         <p class="aseg-label">Trabajamos con</p>
         <div class="aseg-marquee">
+          <!-- Los logos nacen `lazy` para no competir con la foto del hero, y
+               app.js los pasa a `eager` en cuanto la página termina de cargar:
+               en un carrusel los de la derecha quedan fuera de la ventana al
+               maquetar, el navegador no los pide hasta que la animación los
+               trae, y entraban en blanco. -->
           <div class="aseg-track">
-            <img src="assets/aseguradoras/sura.png" alt="Sura" loading="lazy" />
-            <img src="assets/aseguradoras/bolivar.png" alt="Seguros Bolívar" loading="lazy" />
-            <img src="assets/aseguradoras/mapfre.png" alt="Mapfre" loading="lazy" />
-            <img src="assets/aseguradoras/allianz.png" alt="Allianz" loading="lazy" />
-            <img src="assets/aseguradoras/axa.png" alt="AXA Colpatria" loading="lazy" />
-            <img src="assets/aseguradoras/mundial.png" alt="Seguros Mundial" loading="lazy" />
-            <img src="assets/aseguradoras/estado.png" alt="Seguros del Estado" loading="lazy" />
-            <img src="assets/aseguradoras/equidad.png" alt="Equidad Seguros" loading="lazy" />
-            <img src="assets/aseguradoras/berkley.png" alt="Berkley Colombia Seguros" loading="lazy" />
-            <img src="assets/aseguradoras/zurich.png" alt="Zurich" loading="lazy" />
-            <img src="assets/aseguradoras/colsanitas.png" alt="Seguros Colsanitas" loading="lazy" />
-            <img src="assets/aseguradoras/qualitas.png" alt="Quálitas" loading="lazy" />
-            <img src="assets/aseguradoras/previsora.png" alt="Previsora Seguros" loading="lazy" />
-            <img src="assets/aseguradoras/solidaria.png" alt="Aseguradora Solidaria de Colombia" loading="lazy" />
-            <img src="assets/aseguradoras/chubb.png" alt="Chubb" loading="lazy" />
+            <img src="assets/aseguradoras/sura.png" alt="Sura" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/bolivar.png" alt="Seguros Bolívar" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/mapfre.png" alt="Mapfre" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/allianz.png" alt="Allianz" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/axa.png" alt="AXA Colpatria" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/mundial.png" alt="Seguros Mundial" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/estado.png" alt="Seguros del Estado" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/equidad.png" alt="Equidad Seguros" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/berkley.png" alt="Berkley Colombia Seguros" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/zurich.png" alt="Zurich" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/colsanitas.png" alt="Seguros Colsanitas" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/qualitas.png" alt="Quálitas" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/previsora.png" alt="Previsora Seguros" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/solidaria.png" alt="Aseguradora Solidaria de Colombia" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/chubb.png" alt="Chubb" loading="lazy" decoding="async" fetchpriority="low" />
             <!-- La lista va duplicada: la animación desplaza el carril justo la mitad,
                  así el segundo juego entra donde sale el primero y el bucle no salta. -->
-            <img src="assets/aseguradoras/sura.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/bolivar.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/mapfre.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/allianz.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/axa.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/mundial.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/estado.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/equidad.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/berkley.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/zurich.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/colsanitas.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/qualitas.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/previsora.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/solidaria.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="assets/aseguradoras/chubb.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="assets/aseguradoras/sura.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/bolivar.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/mapfre.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/allianz.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/axa.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/mundial.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/estado.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/equidad.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/berkley.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/zurich.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/colsanitas.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/qualitas.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/previsora.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/solidaria.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
+            <img src="assets/aseguradoras/chubb.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" />
           </div>
         </div>
       </div>
@@ -551,6 +556,6 @@
 
   <div class="toast-wrap" id="toastWrap" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=21"></script>
+  <script src="app.js?v=22"></script>
 </body>
 </html>

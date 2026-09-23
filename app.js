@@ -11,7 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initRevealOnScroll();
   initContactForm();
   initBackToTop();
+  initLogoStrip();
 });
+
+/* ================= TIRA DE ASEGURADORAS ================= */
+/* `loading="lazy"` es contraproducente en un carrusel: los logos que van a la
+   derecha quedan fuera de la ventana al maquetar, así que el navegador no los
+   pide hasta que la animación los arrastra hasta la vista — y entran en blanco.
+   Tampoco sirve cargarlos de entrada: en una conexión lenta le robaban más de
+   un segundo a la foto del hero. Así que se piden en cuanto la página termina
+   de cargar, mucho antes de que el visitante baje hasta la tira. */
+function initLogoStrip() {
+  const imgs = document.querySelectorAll('.aseg-track img[loading="lazy"]');
+  if (!imgs.length) return;
+  const cargar = () => imgs.forEach((img) => { img.loading = 'eager'; });
+  if (document.readyState === 'complete') return cargar();
+  // Lo que pase primero: que termine de cargar la página, o que el visitante
+  // empiece a bajar — si ya está bajando, la tira tiene que adelantársele.
+  window.addEventListener('load', cargar, { once: true });
+  window.addEventListener('scroll', cargar, { once: true, passive: true });
+}
 
 /* ================= NAVBAR ================= */
 function initNavbar() {
